@@ -50,7 +50,7 @@ public class Weapon : MonoBehaviour
             // Apply damage
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
             enemyHealth?.TakeDamage(damageAmount);
-            var explodeTarget = hit.collider.GetComponent<ExploObject>();
+            var explodeTarget = hit.collider.GetComponent<ExplosionOnHit>();
             explodeTarget?.Explode();
 
 
