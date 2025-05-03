@@ -21,7 +21,16 @@ namespace StarterAssets
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
-		[Space(10)]
+		public float dashSpeed = 20.0f;
+		public float dashDuration = 0.2f;
+        public float dashCooldown = 1f;
+
+        bool isDashing = false;
+        float dashTimeRemaining = 0f;
+        float dashCooldownRemaining = 0f;
+        Vector3 dashDirection;
+
+        [Space(10)]
 		[Tooltip("The height the player can jump")]
 		public float JumpHeight = 1.2f;
 		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
@@ -114,7 +123,7 @@ namespace StarterAssets
 		{
 			JumpAndGravity();
 			GroundedCheck();
-			Move();
+			handleDashOrMove();
 		}
 
 		private void LateUpdate()
@@ -150,8 +159,53 @@ namespace StarterAssets
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
 		}
+        private void Dash()
+        {
+            if (!isDashing)
+            {
+                // bắt đầu dash
+                isDashing = true;
+                dashTimeRemaining = dashDuration;
+                dashCooldownRemaining = dashCooldown;
 
-		private void Move()
+                // lấy hướng từ input
+                dashDirection = _input.move != Vector2.zero
+                    ? (transform.right * _input.move.x + transform.forward * _input.move.y).normalized
+                    : transform.forward;
+            }
+
+            if (dashTimeRemaining > 0f)
+            {
+                _controller.Move(dashDirection * dashSpeed * Time.deltaTime);
+                dashTimeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                isDashing = false;
+            }
+        }
+		private void handleDashOrMove()
+		{
+            if (dashCooldownRemaining > 0f)
+                dashCooldownRemaining -= Time.deltaTime;
+
+            if (Keyboard.current.leftAltKey.wasPressedThisFrame && !isDashing && dashCooldownRemaining <= 0f)
+            {
+                Dash(); // bắt đầu dash
+            }
+
+            // Dash vẫn còn thời gian → tiếp tục Dash
+            if (isDashing)
+            {
+                Dash();
+            }
+            else
+            {
+                Move(); // không dash → xử lý di chuyển thường
+            }
+
+        }
+        private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
