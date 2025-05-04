@@ -33,13 +33,18 @@ public class ActiveWeapon : MonoBehaviour
     {
         if (!starterAssetsInputs.shoot) return;
 
+
         // Play effect + animation
-        if(timeCooldow >= weaponSO.FireRate)
+        if (timeCooldow >= weaponSO.FireRate)
         {
             currentWeapon.Shoot(weaponSO);
             animator.Play(SHOOT_STRING, 0, 0f);
             timeCooldow = 0f;
         }
-        starterAssetsInputs.ShootInput(false); // reset input
+        if (!weaponSO.IsAutomatic)
+        {
+            starterAssetsInputs.ShootInput(false); // reset input
+
+        }
     }
 }
