@@ -7501,9 +7501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4970e68a5fce2fc449702240f1b00903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSO: {fileID: 11400000, guid: 952d4d8505971a14e8afff19a2104641, type: 2}
-  hitVFXPrefab: {fileID: 4276075091983159031, guid: 2ed5baef62d17db41acc0ee40705c763, type: 3}
-  animator: {fileID: 984974367}
   muzzleFlash: {fileID: 5311406842408936151}
   bulletSpawn: {fileID: 813275363}
 --- !u!1001 &566958542184743663
@@ -12844,6 +12841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2609488445489860006}
   - component: {fileID: 984974367}
+  - component: {fileID: 7971421413562552736}
   m_Layer: 3
   m_Name: Active Weapon
   m_TagString: Untagged
@@ -12851,6 +12849,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7971421413562552736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971421413562552735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a785400a44e48284fb67d538d859b4b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSO: {fileID: 11400000, guid: 952d4d8505971a14e8afff19a2104641, type: 2}
 --- !u!1 &8534797602181814316
 GameObject:
   m_ObjectHideFlags: 0
