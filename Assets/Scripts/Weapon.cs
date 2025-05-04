@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
             if (rb != null)
             {
                 Vector3 forceDirection = hit.point - bulletSpawn.position;
-                rb.AddForceAtPosition(forceDirection.normalized * 50f, hit.point, ForceMode.Impulse);
+                rb.AddForceAtPosition(forceDirection.normalized * 20f, hit.point, ForceMode.Impulse);
             }
             // Tác động lên các vật thể phát nổ
             var explodeTarget = hit.collider.GetComponent<ExplosionOnHit>();
