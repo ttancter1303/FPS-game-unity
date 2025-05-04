@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] WeaponSO weaponSO;
     [SerializeField] GameObject hitVFXPrefab;
     [SerializeField] Animator animator;
     [SerializeField] ParticleSystem muzzleFlash;
-    [SerializeField] int damageAmount = 1;
+    [SerializeField] Transform bulletSpawn;
 
     StarterAssetsInputs starterAssetsInputs;
 
@@ -47,9 +48,18 @@ public class Weapon : MonoBehaviour
                 Destroy(hitVFX, 2f); // fallback nếu không có ParticleSystem
             }
 
-            // Apply damage
+            // Gây sát thương
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-            enemyHealth?.TakeDamage(damageAmount);
+            enemyHealth?.TakeDamage(weaponSO.Damage);
+
+            // Tác động lực vật lý nếu có Rigidbody
+            Rigidbody rb = hit.collider.attachedRigidbody;
+            if (rb != null)
+            {
+                Vector3 forceDirection = hit.point - bulletSpawn.position;
+                rb.AddForceAtPosition(forceDirection.normalized * 50f, hit.point, ForceMode.Impulse);
+            }
+            // Tác động lên các vật thể phát nổ
             var explodeTarget = hit.collider.GetComponent<ExplosionOnHit>();
             explodeTarget?.Explode();
 
