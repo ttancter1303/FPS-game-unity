@@ -47,4 +47,9 @@ public class ActiveWeapon : MonoBehaviour
 
         }
     }
+    public void SwitchWeapon(WeaponSO weaponSO)
+    {
+        Debug.Log("Player pick up: "+ weaponSO.name);
+
+    }
 }
