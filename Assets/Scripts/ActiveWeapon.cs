@@ -27,6 +27,7 @@ public class ActiveWeapon : MonoBehaviour
     {
         timeCooldow += Time.deltaTime;
         HandleShoot();
+        HandleZoom();
     }
 
     void HandleShoot()
@@ -49,7 +50,25 @@ public class ActiveWeapon : MonoBehaviour
     }
     public void SwitchWeapon(WeaponSO weaponSO)
     {
-        Debug.Log("Player pick up: "+ weaponSO.name);
+        if (weaponSO)
+        {
+            Destroy(currentWeapon.gameObject);
+        }
+        Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>();
+        currentWeapon = newWeapon;
+        this.weaponSO = weaponSO;
 
+    }
+    public void HandleZoom()
+    {
+        if(!weaponSO.CanZoom) return;
+        if (starterAssetsInputs.zoom)
+        {
+            Debug.Log("Zooming");
+        }
+        else
+        {
+            Debug.Log("Not zooming");
+        }
     }
 }

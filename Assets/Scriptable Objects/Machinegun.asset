@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Machinegun
   m_EditorClassIdentifier: 
   HitVFXPrefab: {fileID: 4276075091983159031, guid: 2ed5baef62d17db41acc0ee40705c763, type: 3}
+  WeaponPrefab: {fileID: 7840828897185261882, guid: ac39d2ed55a1a964aa40392224ba392a, type: 3}
   Damage: 1
   FireRate: 0.1
   IsAutomatic: 1
