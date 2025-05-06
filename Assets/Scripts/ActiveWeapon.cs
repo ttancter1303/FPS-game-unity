@@ -18,63 +18,81 @@ public class ActiveWeapon : MonoBehaviour
     FirstPersonController firstPersonController;
 
     const string SHOOT_STRING = "Shoot";
-    float timeCooldow = 0f;
+    float timeSinceLastShot = 0f;
+    float timeCooldown = 0f;
     float defaultFOV;
     float defaultRotationSpeed;
     int currentAmmo;
+
     void Awake()
     {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+        firstPersonController = GetComponentInParent<FirstPersonController>();
+        animator = GetComponent<Animator>();
     }
+
     private void Start()
     {
         SwitchWeapon(startingWeaponSO);
-        firstPersonController = GetComponentInParent<FirstPersonController>();
-
-        animator = GetComponent<Animator>();
         defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
         defaultRotationSpeed = firstPersonController.RotationSpeed;
+        AdjustAmmo(startingWeaponSO.MagazineSize);
+
     }
 
     void Update()
     {
-        timeCooldow += Time.deltaTime;
+        timeCooldown += Time.deltaTime;
         HandleShoot();
         HandleZoom();
     }
-    void AdjustAmmo(int amount)
+
+    public void AdjustAmmo(int amount)
     {
         currentAmmo += amount;
+
+        if (currentAmmo > currentWeaponSO.MagazineSize)
+        {
+            currentAmmo = currentWeaponSO.MagazineSize;
+        }
+
         ammoText.text = currentAmmo.ToString("D2");
     }
+
+
     void HandleShoot()
     {
+        timeSinceLastShot += Time.deltaTime;
+
         if (!starterAssetsInputs.shoot) return;
 
-
-        // Play effect + animation
-        if (timeCooldow >= currentWeaponSO.FireRate)
+        if (timeSinceLastShot >= currentWeaponSO.FireRate && currentAmmo > 0)
         {
             currentWeapon.Shoot(currentWeaponSO);
             animator.Play(SHOOT_STRING, 0, 0f);
-            timeCooldow = 0f;
+            timeSinceLastShot = 0f;
+            AdjustAmmo(-1);
         }
+
         if (!currentWeaponSO.IsAutomatic)
         {
-            starterAssetsInputs.ShootInput(false); // reset input
-
+            starterAssetsInputs.ShootInput(false);
         }
     }
+
+
     public void SwitchWeapon(WeaponSO weaponSO)
     {
-        if (weaponSO)
+        if (currentWeapon)
         {
             Destroy(currentWeapon.gameObject);
         }
+
         Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>();
         currentWeapon = newWeapon;
         this.currentWeaponSO = weaponSO;
-        if(!weaponSO.CrosshairOff)
+        AdjustAmmo(currentWeaponSO.MagazineSize);
+        if (!weaponSO.CrosshairOff)
         {
             crosshair.SetActive(true);
         }
@@ -82,24 +100,24 @@ public class ActiveWeapon : MonoBehaviour
         {
             crosshair.SetActive(false);
         }
-
     }
+
+
     public void HandleZoom()
     {
-        if(!currentWeaponSO.CanZoom) return;
-        
+        if (!currentWeaponSO.CanZoom) return;
+
         if (starterAssetsInputs.zoom)
         {
             playerFollowCamera.m_Lens.FieldOfView = currentWeaponSO.ZoomAmount;
             zoomVignette.SetActive(true);
             crosshair.SetActive(true);
             firstPersonController.ChangeRotationSpeed(currentWeaponSO.RotationSpeed);
-
         }
         else
         {
             firstPersonController.ChangeRotationSpeed(defaultRotationSpeed);
-            crosshair.SetActive(false);
+            crosshair.SetActive(!currentWeaponSO.CrosshairOff);
             playerFollowCamera.m_Lens.FieldOfView = defaultFOV;
             zoomVignette.SetActive(false);
         }

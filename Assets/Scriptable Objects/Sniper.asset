@@ -22,3 +22,4 @@ MonoBehaviour:
   CanZoom: 1
   ZoomAmount: 10
   CrosshairOff: 0
+  MagazineSize: 8
