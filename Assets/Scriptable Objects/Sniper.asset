@@ -21,3 +21,4 @@ MonoBehaviour:
   IsAutomatic: 0
   CanZoom: 1
   ZoomAmount: 10
+  CrosshairOff: 0

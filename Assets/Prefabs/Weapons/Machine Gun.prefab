@@ -10005,3 +10005,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 5593674098013726260}
   bulletSpawn: {fileID: 8365263407666048881}
+  interactionsLayer:
+    serializedVersion: 2
+    m_Bits: 65

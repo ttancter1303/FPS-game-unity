@@ -6,12 +6,13 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] Transform bulletSpawn;
+    [SerializeField] LayerMask interactionsLayer;
     public void Shoot(WeaponSO weaponSO)
     {
 
         muzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, interactionsLayer, QueryTriggerInteraction.Ignore))
         {
             // Spawn effect and auto-destroy
             GameObject hitVFX = Instantiate(weaponSO.HitVFXPrefab, hit.point, Quaternion.identity);

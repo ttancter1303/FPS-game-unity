@@ -4953,6 +4953,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 7761577767944415078}
   bulletSpawn: {fileID: 5128131507861573570}
+  interactionsLayer:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!1 &4924945583894959499
 GameObject:
   m_ObjectHideFlags: 0
