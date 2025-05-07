@@ -4913,7 +4913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984429070669442492}
-  - component: {fileID: 6721041326738666968}
+  - component: {fileID: 8989585920168115272}
   m_Layer: 3
   m_Name: Sniper
   m_TagString: Untagged
@@ -4929,7 +4929,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4082593140687018841}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.70129, z: -0, w: 0.7128761}
+  m_LocalRotation: {x: 0, y: 0.7012888, z: 0, w: 0.7128773}
   m_LocalPosition: {x: 0.3553009, y: -0.26999998, z: 0.69003296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4939,7 +4939,7 @@ Transform:
   - {fileID: 5128131507861573570}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 89.061, z: 0}
---- !u!114 &6721041326738666968
+--- !u!114 &8989585920168115272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4948,14 +4948,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4082593140687018841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4970e68a5fce2fc449702240f1b00903, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a09d78d03c92604e96b0d34f744d92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzleFlash: {fileID: 7761577767944415078}
-  bulletSpawn: {fileID: 5128131507861573570}
   interactionsLayer:
     serializedVersion: 2
     m_Bits: 65
+  weaponSO: {fileID: 11400000, guid: cde421b11c458924795634134781d3de, type: 2}
+  bulletSpawn: {fileID: 5128131507861573570}
+  muzzleFlash: {fileID: 7761577767944415078}
 --- !u!1 &4924945583894959499
 GameObject:
   m_ObjectHideFlags: 0

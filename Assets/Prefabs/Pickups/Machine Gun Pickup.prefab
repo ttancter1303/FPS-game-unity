@@ -89,7 +89,7 @@ PrefabInstance:
     - target: {fileID: 2095125674664385544, guid: b6d80f66ba7bd2848918bf350452f95c, type: 3}
       propertyPath: weaponSO
       value: 
-      objectReference: {fileID: 11400000, guid: e302dd545e359424da35d38b645c83ae, type: 2}
+      objectReference: {fileID: 11400000, guid: c2eb72f28ca44ab41b839cabd0577ca2, type: 2}
     - target: {fileID: 4424898916858013148, guid: b6d80f66ba7bd2848918bf350452f95c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 210.3162

@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class ActiveWeapon : MonoBehaviour
 {
-    [SerializeField] WeaponSO startingWeaponSO;
+    [SerializeField] FirearmWeaponSO startingWeaponSO;
     [SerializeField] CinemachineVirtualCamera playerFollowCamera;
     [SerializeField] GameObject zoomVignette;
     [SerializeField] GameObject crosshair;
     [SerializeField] TMP_Text ammoText;
 
-    WeaponSO currentWeaponSO;
+    FirearmWeaponSO currentWeaponSO;
     Animator animator;
     StarterAssetsInputs starterAssetsInputs;
-    Weapon currentWeapon;
+    FirearmWeapon currentWeapon;
     FirstPersonController firstPersonController;
 
     const string SHOOT_STRING = "Shoot";
@@ -68,7 +68,7 @@ public class ActiveWeapon : MonoBehaviour
 
         if (timeSinceLastShot >= currentWeaponSO.FireRate && currentAmmo > 0)
         {
-            currentWeapon.Shoot(currentWeaponSO);
+            currentWeapon.Attack();
             animator.Play(SHOOT_STRING, 0, 0f);
             timeSinceLastShot = 0f;
             AdjustAmmo(-1);
@@ -87,18 +87,21 @@ public class ActiveWeapon : MonoBehaviour
         {
             Destroy(currentWeapon.gameObject);
         }
-
-        Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>();
-        currentWeapon = newWeapon;
-        this.currentWeaponSO = weaponSO;
-        AdjustAmmo(currentWeaponSO.MagazineSize);
-        if (!weaponSO.CrosshairOff)
+        if(weaponSO is FirearmWeaponSO)
         {
-            crosshair.SetActive(true);
-        }
-        else
-        {
-            crosshair.SetActive(false);
+            FirearmWeaponSO firearmWeaponSO = (FirearmWeaponSO)weaponSO;
+            FirearmWeapon newWeapon = Instantiate(firearmWeaponSO.WeaponPrefab, transform).GetComponent<FirearmWeapon>();
+            currentWeapon = newWeapon;
+            this.currentWeaponSO = firearmWeaponSO;
+            AdjustAmmo(currentWeaponSO.MagazineSize);
+            if (!firearmWeaponSO.CrosshairOff)
+            {
+                crosshair.SetActive(true);
+            }
+            else
+            {
+                crosshair.SetActive(false);
+            }
         }
     }
 

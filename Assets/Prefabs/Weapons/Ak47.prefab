@@ -9965,7 +9965,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3957478748600661097}
-  - component: {fileID: 5182772128946220450}
+  - component: {fileID: -3865588238786608850}
   m_Layer: 3
   m_Name: Ak47
   m_TagString: Untagged
@@ -9991,7 +9991,7 @@ Transform:
   - {fileID: 385277321149572604}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 89.061, z: 0}
---- !u!114 &5182772128946220450
+--- !u!114 &-3865588238786608850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10000,11 +10000,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7002488474136560303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4970e68a5fce2fc449702240f1b00903, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a09d78d03c92604e96b0d34f744d92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzleFlash: {fileID: 5110560331984982578}
-  bulletSpawn: {fileID: 385277321149572604}
   interactionsLayer:
     serializedVersion: 2
     m_Bits: 65
+  weaponSO: {fileID: 11400000, guid: ba579f49c2960c0488c8d3ddf570b5ae, type: 2}
+  bulletSpawn: {fileID: 385277321149572604}
+  muzzleFlash: {fileID: 5110560331984982578}

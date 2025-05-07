@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour
+public class MeleeWeapon : Weapon
 {
     [SerializeField] MeleeWeaponSO weaponSO;
     [SerializeField] Transform attackOrigin;
@@ -10,14 +10,6 @@ public class MeleeWeapon : MonoBehaviour
 
     const string ATTACK_ANIM = "MeleeAttack";
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Fire1") && Time.time - lastAttackTime >= weaponSO.AttackRate)
-        {
-            Attack();
-            lastAttackTime = Time.time;
-        }
-    }
 
     void Attack()
     {
@@ -27,7 +19,7 @@ public class MeleeWeapon : MonoBehaviour
 
         // Damage logic
         RaycastHit hit;
-        if (Physics.Raycast(attackOrigin.position, attackOrigin.forward, out hit, weaponSO.AttackRange, weaponSO.HitLayers))
+        if (Physics.Raycast(attackOrigin.position, attackOrigin.forward, out hit, weaponSO.AttackRange))
         {
             // Gây sát thương
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();

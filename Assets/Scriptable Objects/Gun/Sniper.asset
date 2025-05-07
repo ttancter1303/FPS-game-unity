@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b27f82ef23d5b54ab765ef9bd169d36, type: 3}
+  m_Script: {fileID: 11500000, guid: b29147ed7962f0f439c0e42cd2fec79a, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
   HitVFXPrefab: {fileID: 4276075091983159031, guid: 2ed5baef62d17db41acc0ee40705c763, type: 3}
   WeaponPrefab: {fileID: 4082593140687018841, guid: 684d79b572463af459c9b6363a03b3a6, type: 3}
+  WeaponName: 
+  Damage: 10
   WeaponForce: 100
   RotationSpeed: 0.3
-  Damage: 5
-  FireRate: 1
+  FireRate: 0.5
   IsAutomatic: 0
   CanZoom: 1
   ZoomAmount: 10
   CrosshairOff: 0
-  MagazineSize: 8
+  MagazineSize: 20

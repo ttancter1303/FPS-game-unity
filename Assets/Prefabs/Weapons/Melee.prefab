@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984429070669442492}
-  - component: {fileID: 6721041326738666968}
   m_Layer: 3
   m_Name: Melee
   m_TagString: Untagged
@@ -33,23 +32,6 @@ Transform:
   - {fileID: 4351885037168424579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 89.061, z: 0}
---- !u!114 &6721041326738666968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4082593140687018841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4970e68a5fce2fc449702240f1b00903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  muzzleFlash: {fileID: 0}
-  bulletSpawn: {fileID: 0}
-  interactionsLayer:
-    serializedVersion: 2
-    m_Bits: 65
 --- !u!1 &7367226623980542178
 GameObject:
   m_ObjectHideFlags: 0

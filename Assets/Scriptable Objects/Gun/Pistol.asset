@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b27f82ef23d5b54ab765ef9bd169d36, type: 3}
+  m_Script: {fileID: 11500000, guid: b29147ed7962f0f439c0e42cd2fec79a, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
   HitVFXPrefab: {fileID: 4276075091983159031, guid: 2ed5baef62d17db41acc0ee40705c763, type: 3}
   WeaponPrefab: {fileID: 7712302120251831698, guid: bc4ebb5f3b3c3d946a89871522979eba, type: 3}
-  WeaponForce: 35
+  WeaponName: 
+  Damage: 3
+  WeaponForce: 30
   RotationSpeed: 1
-  Damage: 2
-  FireRate: 0.2
+  FireRate: 0.5
   IsAutomatic: 0
   CanZoom: 0
   ZoomAmount: 10
   CrosshairOff: 0
-  MagazineSize: 12
+  MagazineSize: 20

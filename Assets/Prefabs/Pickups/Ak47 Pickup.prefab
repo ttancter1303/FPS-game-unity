@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 60
-  weaponSO: {fileID: 11400000, guid: 27af11cd49cb00344be9aa27d9e2f78f, type: 2}
+  weaponSO: {fileID: 11400000, guid: ba579f49c2960c0488c8d3ddf570b5ae, type: 2}
 --- !u!135 &8125499923942991022
 SphereCollider:
   m_ObjectHideFlags: 0
