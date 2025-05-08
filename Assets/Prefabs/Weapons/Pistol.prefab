@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4738256232735028290}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6291287849506202789}
   - component: {fileID: 5292495205602309599}
   - component: {fileID: 8658422829001782828}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlashHeadon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4943,7 +4943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5042939088834809330}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4977,7 +4977,7 @@ GameObject:
   - component: {fileID: 540669619164056585}
   - component: {fileID: 8680929304957036082}
   - component: {fileID: 68320468441283257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9881,7 +9881,7 @@ GameObject:
   - component: {fileID: 7575165941023749194}
   - component: {fileID: 6813874615808736239}
   - component: {fileID: 8749167607430795045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pistol_02_Blue_Team
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9966,7 +9966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7342028375931532094}
   - component: {fileID: 4971122255782401584}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}

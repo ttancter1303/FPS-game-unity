@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7295112586926609634}
   - component: {fileID: 2289937398700987342}
   - component: {fileID: 8743311607322786457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Heavy_machine_gun_01_Blue_Team
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 645583846613820003}
   - component: {fileID: 5593674098013726260}
   - component: {fileID: 369361329702674513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4999,7 +4999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6206512179787424657}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5031,7 +5031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8365263407666048881}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5064,7 +5064,7 @@ GameObject:
   - component: {fileID: 354030920836402907}
   - component: {fileID: 3974437448655890938}
   - component: {fileID: 2246766645096487156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlashHeadon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9966,7 +9966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4826417115665916746}
   - component: {fileID: 5609093063187627510}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Machine Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

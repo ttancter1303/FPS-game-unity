@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4162319111560600089}
   - component: {fileID: 7761577767944415078}
   - component: {fileID: 6897964283741833028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4914,7 +4914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 984429070669442492}
   - component: {fileID: 8989585920168115272}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4968,7 +4968,7 @@ GameObject:
   - component: {fileID: 6251677703224486154}
   - component: {fileID: 1002126260743603453}
   - component: {fileID: 787146041058233801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sniper_01_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5054,7 +5054,7 @@ GameObject:
   - component: {fileID: 1599735626629065526}
   - component: {fileID: 8982151437968720623}
   - component: {fileID: 4604121787422815758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlashHeadon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9955,7 +9955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4351885037168424579}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9987,7 +9987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5128131507861573570}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

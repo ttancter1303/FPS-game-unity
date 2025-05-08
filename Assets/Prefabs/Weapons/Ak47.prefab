@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7240837337883519787}
   - component: {fileID: 5110560331984982578}
   - component: {fileID: 553750275384739036}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 161607810875879949}
   - component: {fileID: 520536327379617203}
   - component: {fileID: 6179116466284273183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlashHeadon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9902,7 +9902,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 385277321149572604}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9933,7 +9933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5690198412601466447}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9966,7 +9966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3957478748600661097}
   - component: {fileID: -3865588238786608850}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Ak47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
