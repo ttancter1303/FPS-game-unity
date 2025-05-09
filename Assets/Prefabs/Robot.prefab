@@ -138,7 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d3abba45dadb64b95d1fa4863d24cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 15
+  particle: {fileID: 6645992362576146734, guid: 6bbf2af461d78a44688f4ee92843c5b8, type: 3}
 --- !u!95 &3467264501634543206
 Animator:
   serializedVersion: 7

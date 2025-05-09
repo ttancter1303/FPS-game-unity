@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] int startingHealth = 3;
+    [SerializeField] int startingHealth = 10;
+    [SerializeField] ParticleSystem particle;
 
     int currentHealth;
 
@@ -17,7 +18,9 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            Instantiate(particle, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+            
         }
     }
 }
