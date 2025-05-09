@@ -15,7 +15,7 @@ public class Robot : MonoBehaviour
     }
     void Start()
     {
-        if(!player) return;
+        
         player = FindFirstObjectByType<FirstPersonController>();
 
     }
@@ -23,6 +23,7 @@ public class Robot : MonoBehaviour
 
     void Update()
     {
+        if (!player) return;
         agent.SetDestination(player.transform.position);
 
     }

@@ -1,9 +1,11 @@
+using Cinemachine;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int startingHealth = 10;
     [SerializeField] ParticleSystem particle;
+
 
     int currentHealth;
 
