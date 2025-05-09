@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
+using Cinemachine;
 
 public class FirearmWeapon : Weapon
 {
     [SerializeField] private FirearmWeaponSO weaponSO; // Tham chiếu đến dữ liệu vũ khí tầm xa (FirearmWeaponSO)
     [SerializeField] Transform bulletSpawn;
     [SerializeField] ParticleSystem muzzleFlash;
+
+    CinemachineImpulseSource impulseSource;
+
+    private void Awake()
+    {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
     public override void Attack()
     {
-        Debug.Log("SHoot");
+        impulseSource.GenerateImpulse();
 
         muzzleFlash.Play();
         RaycastHit hit;
