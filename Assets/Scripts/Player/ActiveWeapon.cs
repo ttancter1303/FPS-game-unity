@@ -13,12 +13,12 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] TMP_Text ammoText;
 
     FirearmWeaponSO currentWeaponSO;
-    Animator animator;
+
     StarterAssetsInputs starterAssetsInputs;
     FirearmWeapon currentWeapon;
     FirstPersonController firstPersonController;
 
-    const string SHOOT_STRING = "Shoot";
+
     float timeSinceLastShot = 0f;
     float timeCooldown = 0f;
     float defaultFOV;
@@ -29,7 +29,7 @@ public class ActiveWeapon : MonoBehaviour
     {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
         firstPersonController = GetComponentInParent<FirstPersonController>();
-        animator = GetComponent<Animator>();
+
     }
 
     private void Start()
@@ -70,7 +70,7 @@ public class ActiveWeapon : MonoBehaviour
         if (timeSinceLastShot >= currentWeaponSO.FireRate && currentAmmo > 0)
         {
             currentWeapon.Attack();
-            animator.Play(SHOOT_STRING, 0, 0f);
+
             timeSinceLastShot = 0f;
             AdjustAmmo(-1);
         }

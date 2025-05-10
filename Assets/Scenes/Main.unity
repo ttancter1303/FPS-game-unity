@@ -3906,7 +3906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1151238380
 Transform:
   m_ObjectHideFlags: 0
@@ -5751,6 +5751,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 975276537}
     - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
+      propertyPath: startingWeaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 952d4d8505971a14e8afff19a2104641, type: 2}
+    - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
       propertyPath: playerFollowCamera
       value: 
       objectReference: {fileID: 1425021277}
@@ -5758,7 +5762,8 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 112440011098737160, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -5784,7 +5789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4058494789029988946, guid: f14ecb4090a1875419c2dbfee8a8a21c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.141
+      value: 14.97
       objectReference: {fileID: 0}
     - target: {fileID: 4058494789029988946, guid: f14ecb4090a1875419c2dbfee8a8a21c, type: 3}
       propertyPath: m_LocalRotation.w

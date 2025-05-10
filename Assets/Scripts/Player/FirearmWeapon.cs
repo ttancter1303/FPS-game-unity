@@ -6,17 +6,20 @@ public class FirearmWeapon : Weapon
     [SerializeField] private FirearmWeaponSO weaponSO; // Tham chiếu đến dữ liệu vũ khí tầm xa (FirearmWeaponSO)
     [SerializeField] Transform bulletSpawn;
     [SerializeField] ParticleSystem muzzleFlash;
-
+    Animator animator;
+    const string SHOOT_STRING = "Shoot";
     CinemachineImpulseSource impulseSource;
 
     private void Awake()
     {
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        animator = GetComponent<Animator>();
     }
     public override void Attack()
     {
+        animator.ResetTrigger(SHOOT_STRING);
+        animator.SetTrigger(SHOOT_STRING);
         impulseSource.GenerateImpulse();
-
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, interactionsLayer, QueryTriggerInteraction.Ignore))
