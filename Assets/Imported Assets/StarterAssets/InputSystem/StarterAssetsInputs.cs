@@ -15,6 +15,10 @@ namespace StarterAssets
         public bool shoot;
         public bool dash;
         public bool zoom;
+        public bool switchWeapon1;
+        public bool switchWeapon2;
+        public bool switchWeapon3;
+        public bool switchWeapon4;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -55,6 +59,23 @@ namespace StarterAssets
         {
             ZoomInput(value.isPressed);
         }
+        public void OnSwitchWeapon1(InputValue value)
+        {
+            SwitchWeapon1Input(value.isPressed);
+        }
+        public void OnSwitchWeapon2(InputValue value)
+        {
+            SwitchWeapon2Input(value.isPressed);
+        }
+        public void OnSwitchWeapon3(InputValue value)
+        {
+            SwitchWeapon3Input(value.isPressed);
+        }
+        public void OnSwitchWeapon4(InputValue value)
+        {
+            SwitchWeapon4Input(value.isPressed);
+        }
+
 
 #endif
 
@@ -72,6 +93,22 @@ namespace StarterAssets
         public void JumpInput(bool newJumpState)
         {
             jump = newJumpState;
+        }
+        public void SwitchWeapon1Input(bool newWeaponState)
+        {
+            switchWeapon1 = newWeaponState;
+        }
+        public void SwitchWeapon2Input(bool newWeaponState)
+        {
+            switchWeapon2 = newWeaponState;
+        }
+        public void SwitchWeapon3Input(bool newWeaponState)
+        {
+            switchWeapon3 = newWeaponState;
+        }
+        public void SwitchWeapon4Input(bool newWeaponState)
+        {
+            switchWeapon4 = newWeaponState;
         }
 
         public void SprintInput(bool newSprintState)

@@ -12,6 +12,8 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] GameObject crosshair;
     [SerializeField] TMP_Text ammoText;
 
+
+    WeaponSO[] availableWeapons = new FirearmWeaponSO[4];
     FirearmWeaponSO currentWeaponSO;
 
     StarterAssetsInputs starterAssetsInputs;
@@ -20,10 +22,13 @@ public class ActiveWeapon : MonoBehaviour
 
 
     float timeSinceLastShot = 0f;
+    int[] weaponAmmos = new int[4];
+
     float timeCooldown = 0f;
     float defaultFOV;
     float defaultRotationSpeed;
     int currentAmmo;
+    int weaponIndex = 0;
 
     void Awake()
     {
@@ -35,6 +40,7 @@ public class ActiveWeapon : MonoBehaviour
     private void Start()
     {
         SwitchWeapon(startingWeaponSO);
+        AddWeapon(startingWeaponSO);
         defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
         defaultRotationSpeed = firstPersonController.RotationSpeed;
         AdjustAmmo(startingWeaponSO.MagazineSize);
@@ -46,6 +52,7 @@ public class ActiveWeapon : MonoBehaviour
         timeCooldown += Time.deltaTime;
         HandleShoot();
         HandleZoom();
+        HandleSwitchWeapon();
     }
 
     public void AdjustAmmo(int amount)
@@ -80,32 +87,125 @@ public class ActiveWeapon : MonoBehaviour
             starterAssetsInputs.ShootInput(false);
         }
     }
+    public void HandleSwitchWeapon()
+    {
+        if (starterAssetsInputs.switchWeapon1)
+        {
+            TrySwitchWeapon(0);
+            starterAssetsInputs.switchWeapon1 = false;
+        }
+        else if (starterAssetsInputs.switchWeapon2)
+        {
+            TrySwitchWeapon(1);
+            starterAssetsInputs.switchWeapon2 = false;
+        }
+        else if (starterAssetsInputs.switchWeapon3)
+        {
+            TrySwitchWeapon(2);
+            starterAssetsInputs.switchWeapon3 = false;
+        }
+        else if (starterAssetsInputs.switchWeapon4)
+        {
+            TrySwitchWeapon(3);
+            starterAssetsInputs.switchWeapon4 = false;
+        }
+    }
+
+    void OnSwitchToWeapon1() => TrySwitchWeapon(0);
+    void OnSwitchToWeapon2() => TrySwitchWeapon(1);
+    void OnSwitchToWeapon3() => TrySwitchWeapon(2);
+    void OnSwitchToWeapon4() => TrySwitchWeapon(3);
+
+    void TrySwitchWeapon(int index)
+    {
+        if (index < 0 || index >= availableWeapons.Length) return;
+
+        var targetWeapon = availableWeapons[index];
+        if (targetWeapon == null) return;
+
+        if (targetWeapon == currentWeaponSO)
+        {
+            Debug.Log("Already holding: " + targetWeapon.name);
+            return;
+        }
+
+        Debug.Log("Switching to: " + targetWeapon.name);
+        SwitchWeapon(targetWeapon);
+    }
+
+
 
 
     public void SwitchWeapon(WeaponSO weaponSO)
     {
-        if (currentWeapon)
+        if (currentWeapon != null)
         {
             Destroy(currentWeapon.gameObject);
+            currentWeapon = null;
         }
-        if(weaponSO is FirearmWeaponSO)
+
+        if (weaponSO is FirearmWeaponSO firearmWeaponSO)
         {
-            FirearmWeaponSO firearmWeaponSO = (FirearmWeaponSO)weaponSO;
-            FirearmWeapon newWeapon = Instantiate(firearmWeaponSO.WeaponPrefab, transform).GetComponent<FirearmWeapon>();
-            currentWeapon = newWeapon;
-            this.currentWeaponSO = firearmWeaponSO;
-            AdjustAmmo(currentWeaponSO.MagazineSize);
-            if (!firearmWeaponSO.CrosshairOff)
-            {
-                crosshair.SetActive(true);
-            }
-            else
-            {
-                crosshair.SetActive(false);
-            }
+            GameObject instance = Instantiate(firearmWeaponSO.WeaponPrefab, transform);
+            currentWeapon = instance.GetComponent<FirearmWeapon>();
+            currentWeaponSO = firearmWeaponSO;
+
+            currentAmmo = firearmWeaponSO.MagazineSize;
+            ammoText.text = currentAmmo.ToString("D2");
+
+            crosshair.SetActive(!firearmWeaponSO.CrosshairOff);
+        }
+        else
+        {
+            Debug.LogWarning("Unsupported weapon type.");
         }
     }
 
+
+    public bool AddWeapon(WeaponSO newWeapon)
+    {
+        // Không thêm nếu đã có trong danh sách
+        for (int i = 0; i < availableWeapons.Length; i++)
+        {
+            if (availableWeapons[i] == newWeapon)
+            {
+                Debug.Log("Weapon already in inventory: " + newWeapon.name);
+                return false;
+            }
+        }
+
+        // Thêm vào slot trống đầu tiên
+        for (int i = 0; i < availableWeapons.Length; i++)
+        {
+            if (availableWeapons[i] == null)
+            {
+                availableWeapons[i] = newWeapon;
+                Debug.Log("Weapon added: " + newWeapon.name);
+                return true;
+            }
+        }
+
+        Debug.Log("Weapon inventory full!");
+        return false;
+    }
+
+
+
+    public void DebugPickup()
+    {
+        for (int i = 0; i < availableWeapons.Length; i++)
+        {
+            var item = availableWeapons[i];
+            if (item != null)
+            {
+                Debug.Log($"Slot {i + 1}: {item.name}");
+            }
+            else
+            {
+                Debug.Log($"Slot {i + 1}: Empty");
+            }
+        }
+    }
 
     public void HandleZoom()
     {
