@@ -2,6 +2,7 @@
 using StarterAssets;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveWeapon : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] GameObject zoomVignette;
     [SerializeField] GameObject crosshair;
     [SerializeField] TMP_Text ammoText;
+    [SerializeField] GameObject weaponSlot1;
+    [SerializeField] GameObject weaponSlot2;
+    [SerializeField] GameObject weaponSlot3;
+    [SerializeField] GameObject weaponSlot4;
 
 
     WeaponSO[] availableWeapons = new FirearmWeaponSO[4];
@@ -91,33 +96,31 @@ public class ActiveWeapon : MonoBehaviour
     {
         if (starterAssetsInputs.switchWeapon1)
         {
-            TrySwitchWeapon(0);
+            TrySwitchWeapon(0,weaponSlot1);
+            
             starterAssetsInputs.switchWeapon1 = false;
         }
         else if (starterAssetsInputs.switchWeapon2)
         {
-            TrySwitchWeapon(1);
+            TrySwitchWeapon(1, weaponSlot2);
             starterAssetsInputs.switchWeapon2 = false;
         }
         else if (starterAssetsInputs.switchWeapon3)
         {
-            TrySwitchWeapon(2);
+            TrySwitchWeapon(2, weaponSlot3);
             starterAssetsInputs.switchWeapon3 = false;
         }
         else if (starterAssetsInputs.switchWeapon4)
         {
-            TrySwitchWeapon(3);
+            TrySwitchWeapon(3, weaponSlot4);
             starterAssetsInputs.switchWeapon4 = false;
         }
     }
-
-    void OnSwitchToWeapon1() => TrySwitchWeapon(0);
-    void OnSwitchToWeapon2() => TrySwitchWeapon(1);
-    void OnSwitchToWeapon3() => TrySwitchWeapon(2);
-    void OnSwitchToWeapon4() => TrySwitchWeapon(3);
-
-    void TrySwitchWeapon(int index)
+    void TrySwitchWeapon(int index, GameObject selectedSlot)
     {
+        // Reset màu tất cả slot về trắng
+        ResetAllSlotColors();
+
         if (index < 0 || index >= availableWeapons.Length) return;
 
         var targetWeapon = availableWeapons[index];
@@ -130,9 +133,19 @@ public class ActiveWeapon : MonoBehaviour
         }
 
         Debug.Log("Switching to: " + targetWeapon.name);
+
+        // Tô đỏ slot mới
+        selectedSlot.GetComponent<Image>().color = Color.red;
+
         SwitchWeapon(targetWeapon);
     }
-
+    void ResetAllSlotColors()
+    {
+        weaponSlot1.GetComponent<Image>().color = Color.white;
+        weaponSlot2.GetComponent<Image>().color = Color.white;
+        weaponSlot3.GetComponent<Image>().color = Color.white;
+        weaponSlot4.GetComponent<Image>().color = Color.white;
+    }
 
 
 
