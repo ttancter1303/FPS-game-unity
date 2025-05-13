@@ -12,10 +12,6 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] GameObject zoomVignette;
     [SerializeField] GameObject crosshair;
     [SerializeField] TMP_Text ammoText;
-    //[SerializeField] GameObject weaponSlot1;
-    //[SerializeField] GameObject weaponSlot2;
-    //[SerializeField] GameObject weaponSlot3;
-    //[SerializeField] GameObject weaponSlot4;
     [SerializeField] Image[] weaponSlots;
 
 
