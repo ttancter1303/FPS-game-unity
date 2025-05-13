@@ -3926,7 +3926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyMaterials:
   - {fileID: 2100000, guid: 4cde5aac7288f054380fe768f78a0311, type: 2}
-  eyesGlow: 0
+  eyesGlow: 1
 --- !u!114 &9029618977417277847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3940,7 +3940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 10
-  particle: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  particle: {fileID: 3643005157196915440, guid: cb0f2fbc6003ef14dadf389b0f45c7d3, type: 3}
 --- !u!114 &4488456976068479443
 MonoBehaviour:
   m_ObjectHideFlags: 0
