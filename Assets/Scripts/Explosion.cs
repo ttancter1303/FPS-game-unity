@@ -5,8 +5,10 @@ public class Explosion : MonoBehaviour
     [SerializeField] float radius = 1.5f;
     [SerializeField] int damage = 30;
     const string PLAYER_STRING = "Player";
+    AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Explode();
     }
     void OnDrawGizmos()
@@ -22,6 +24,8 @@ public class Explosion : MonoBehaviour
             EnemyHealth enemyHealth = hitCollider.GetComponent<EnemyHealth>();
             if (enemyHealth)
             {
+                audioSource.Play();
+
                 enemyHealth.TakeDamage(damage);
                 break;
             }
@@ -29,6 +33,8 @@ public class Explosion : MonoBehaviour
             PlayerHealth playerHealth = hitCollider.GetComponent<PlayerHealth>();
             if (playerHealth)
             {
+                audioSource.Play();
+
                 playerHealth.TakeDamage(damage);
                 break;
             }

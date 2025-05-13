@@ -9,14 +9,20 @@ public class FirearmWeapon : Weapon
     Animator animator;
     const string SHOOT_STRING = "Shoot";
     CinemachineImpulseSource impulseSource;
-
+    AudioSource audioSource;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
+    private void Start()
+    {
         animator = GetComponent<Animator>();
+
     }
     public override void Attack()
     {
+
         animator.ResetTrigger(SHOOT_STRING);
         animator.SetTrigger(SHOOT_STRING);
         impulseSource.GenerateImpulse();
@@ -37,6 +43,7 @@ public class FirearmWeapon : Weapon
                 Destroy(hitVFX, 2f); // fallback nếu không có ParticleSystem
             }
 
+            audioSource.Play();
             // Gây sát thương
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
             enemyHealth?.TakeDamage(weaponSO.Damage);
