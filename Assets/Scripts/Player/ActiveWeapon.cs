@@ -12,10 +12,11 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] GameObject zoomVignette;
     [SerializeField] GameObject crosshair;
     [SerializeField] TMP_Text ammoText;
-    [SerializeField] GameObject weaponSlot1;
-    [SerializeField] GameObject weaponSlot2;
-    [SerializeField] GameObject weaponSlot3;
-    [SerializeField] GameObject weaponSlot4;
+    //[SerializeField] GameObject weaponSlot1;
+    //[SerializeField] GameObject weaponSlot2;
+    //[SerializeField] GameObject weaponSlot3;
+    //[SerializeField] GameObject weaponSlot4;
+    [SerializeField] Image[] weaponSlots;
 
 
     WeaponSO[] availableWeapons = new FirearmWeaponSO[4];
@@ -44,8 +45,10 @@ public class ActiveWeapon : MonoBehaviour
 
     private void Start()
     {
+        DisableAllWeaponSlot();
         SwitchWeapon(startingWeaponSO);
         AddWeapon(startingWeaponSO);
+        weaponSlots[0].GetComponent<Image>().color = Color.red;
         defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
         defaultRotationSpeed = firstPersonController.RotationSpeed;
         AdjustAmmo(startingWeaponSO.MagazineSize);
@@ -96,27 +99,27 @@ public class ActiveWeapon : MonoBehaviour
     {
         if (starterAssetsInputs.switchWeapon1)
         {
-            TrySwitchWeapon(0,weaponSlot1);
+            TrySwitchWeapon(0, weaponSlots[0]);
             
             starterAssetsInputs.switchWeapon1 = false;
         }
         else if (starterAssetsInputs.switchWeapon2)
         {
-            TrySwitchWeapon(1, weaponSlot2);
+            TrySwitchWeapon(1, weaponSlots[1]);
             starterAssetsInputs.switchWeapon2 = false;
         }
         else if (starterAssetsInputs.switchWeapon3)
         {
-            TrySwitchWeapon(2, weaponSlot3);
+            TrySwitchWeapon(2, weaponSlots[2]);
             starterAssetsInputs.switchWeapon3 = false;
         }
         else if (starterAssetsInputs.switchWeapon4)
         {
-            TrySwitchWeapon(3, weaponSlot4);
+            TrySwitchWeapon(3, weaponSlots[3]);
             starterAssetsInputs.switchWeapon4 = false;
         }
     }
-    void TrySwitchWeapon(int index, GameObject selectedSlot)
+    void TrySwitchWeapon(int index, Image selectedSlot)
     {
         // Reset màu tất cả slot về trắng
         ResetAllSlotColors();
@@ -128,6 +131,7 @@ public class ActiveWeapon : MonoBehaviour
 
         if (targetWeapon == currentWeaponSO)
         {
+            selectedSlot.GetComponent<Image>().color = Color.red;
             Debug.Log("Already holding: " + targetWeapon.name);
             return;
         }
@@ -141,12 +145,17 @@ public class ActiveWeapon : MonoBehaviour
     }
     void ResetAllSlotColors()
     {
-        weaponSlot1.GetComponent<Image>().color = Color.white;
-        weaponSlot2.GetComponent<Image>().color = Color.white;
-        weaponSlot3.GetComponent<Image>().color = Color.white;
-        weaponSlot4.GetComponent<Image>().color = Color.white;
+        for (int i = 0; i < weaponSlots.Length; i++) {
+            weaponSlots[i].GetComponent<Image>().color = Color.white;
+        }
     }
-
+    void DisableAllWeaponSlot()
+    {
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            weaponSlots[i].enabled = false;
+        }
+    }
 
 
     public void SwitchWeapon(WeaponSO weaponSO)
@@ -192,6 +201,7 @@ public class ActiveWeapon : MonoBehaviour
         {
             if (availableWeapons[i] == null)
             {
+                weaponSlots[i].enabled = true;
                 availableWeapons[i] = newWeapon;
                 Debug.Log("Weapon added: " + newWeapon.name);
                 return true;

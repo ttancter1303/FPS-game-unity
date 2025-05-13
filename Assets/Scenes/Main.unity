@@ -5701,7 +5701,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4372126666125198690, guid: 62b94c21445483847919a530c0e69507, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5679626
+      value: 5.09
       objectReference: {fileID: 0}
     - target: {fileID: 4372126666125198690, guid: 62b94c21445483847919a530c0e69507, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5709,7 +5709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4372126666125198690, guid: 62b94c21445483847919a530c0e69507, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.65276
+      value: 5.36
       objectReference: {fileID: 0}
     - target: {fileID: 4372126666125198690, guid: 62b94c21445483847919a530c0e69507, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5917,6 +5917,26 @@ PrefabInstance:
       propertyPath: playerFollowCamera
       value: 
       objectReference: {fileID: 1425021277}
+    - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
+      propertyPath: weaponSlots.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
+      propertyPath: 'weaponSlots.Array.data[0]'
+      value: 
+      objectReference: {fileID: 893723537}
+    - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
+      propertyPath: 'weaponSlots.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1431682805}
+    - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
+      propertyPath: 'weaponSlots.Array.data[2]'
+      value: 
+      objectReference: {fileID: 339761277}
+    - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
+      propertyPath: 'weaponSlots.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1213853626}
     - target: {fileID: 7399606696192529715, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1

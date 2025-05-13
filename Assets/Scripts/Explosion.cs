@@ -16,17 +16,23 @@ public class Explosion : MonoBehaviour
     }
     void Explode()
     {
-
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider hitCollider in hitColliders)
         {
             EnemyHealth enemyHealth = hitCollider.GetComponent<EnemyHealth>();
-            if (!enemyHealth) continue;
-            enemyHealth.TakeDamage(damage);
+            if (enemyHealth)
+            {
+                enemyHealth.TakeDamage(damage);
+                break;
+            }
+
             PlayerHealth playerHealth = hitCollider.GetComponent<PlayerHealth>();
-            if(!playerHealth) continue;
-            playerHealth.TakeDamage(damage);
-            break;
+            if (playerHealth)
+            {
+                playerHealth.TakeDamage(damage);
+                break;
+            }
         }
     }
+
 }
