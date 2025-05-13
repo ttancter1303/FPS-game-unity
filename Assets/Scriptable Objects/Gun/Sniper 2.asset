@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29147ed7962f0f439c0e42cd2fec79a, type: 3}
+  m_Name: Sniper 2
+  m_EditorClassIdentifier: 
+  HitVFXPrefab: {fileID: 4276075091983159031, guid: 2ed5baef62d17db41acc0ee40705c763, type: 3}
+  WeaponPrefab: {fileID: 1088049654430794751, guid: dff83b2f987fecd4c83281f3808e10a8, type: 3}
+  WeaponName: 
+  Damage: 20
+  WeaponForce: 150
+  RotationSpeed: 0.3
+  FireRate: 0.5
+  IsAutomatic: 0
+  CanZoom: 1
+  ZoomAmount: 10
+  CrosshairOff: 1
+  MagazineSize: 12
