@@ -205,6 +205,7 @@ MonoBehaviour:
   weaponSO: {fileID: 11400000, guid: ba579f49c2960c0488c8d3ddf570b5ae, type: 2}
   bulletSpawn: {fileID: 385277321149572604}
   muzzleFlash: {fileID: 777140006267909751}
+  recoilAngle: 1
 --- !u!114 &-6841292184723678689
 MonoBehaviour:
   m_ObjectHideFlags: 0

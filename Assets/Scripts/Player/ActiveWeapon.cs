@@ -32,6 +32,8 @@ public class ActiveWeapon : MonoBehaviour
     int currentAmmo;
     int weaponIndex = 0;
 
+
+
     void Awake()
     {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
@@ -81,7 +83,6 @@ public class ActiveWeapon : MonoBehaviour
         if (timeSinceLastShot >= currentWeaponSO.FireRate && currentAmmo > 0)
         {
             currentWeapon.Attack();
-
             timeSinceLastShot = 0f;
             AdjustAmmo(-1);
         }
