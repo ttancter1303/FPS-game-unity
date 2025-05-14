@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4344358476089109141}
   - component: {fileID: 1713422725885698441}
   - component: {fileID: 8125499923942991022}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Ak47 Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8051985525322338273}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 620591860361813911, guid: 829540d8d6a4b17468171de1ec58c0a8, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

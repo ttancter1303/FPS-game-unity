@@ -24,11 +24,10 @@ public class ActiveWeapon : MonoBehaviour
 
 
     float timeSinceLastShot = 0f;
-    int[] weaponAmmos = new int[4];
-
     float timeCooldown = 0f;
     float defaultFOV;
     float defaultRotationSpeed;
+    int[] weaponAmmos = new int[4];
     int currentAmmo;
     int weaponIndex = 0;
 
@@ -64,15 +63,27 @@ public class ActiveWeapon : MonoBehaviour
     public void AdjustAmmo(int amount)
     {
         currentAmmo += amount;
+        int index = GetWeaponIndex(currentWeaponSO);
 
-        if (currentAmmo > currentWeaponSO.MagazineSize)
+        if (index != -1 && currentWeaponSO is FirearmWeaponSO firearm)
         {
-            currentAmmo = currentWeaponSO.MagazineSize;
+            if (currentAmmo > firearm.MagazineSize)
+                currentAmmo = firearm.MagazineSize;
+
+            weaponAmmos[index] = currentAmmo;
         }
 
         ammoText.text = currentAmmo.ToString("D2");
     }
-
+    int GetWeaponIndex(WeaponSO weapon)
+    {
+        for (int i = 0; i < availableWeapons.Length; i++)
+        {
+            if (availableWeapons[i] == weapon)
+                return i;
+        }
+        return -1;
+    }
 
     void HandleShoot()
     {
@@ -169,9 +180,10 @@ public class ActiveWeapon : MonoBehaviour
             currentWeapon = instance.GetComponent<FirearmWeapon>();
             currentWeaponSO = firearmWeaponSO;
 
-            currentAmmo = firearmWeaponSO.MagazineSize;
-            ammoText.text = currentAmmo.ToString("D2");
+            int index = GetWeaponIndex(currentWeaponSO);
+            currentAmmo = (index != -1) ? weaponAmmos[index] : firearmWeaponSO.MagazineSize;
 
+            ammoText.text = currentAmmo.ToString("D2");
             crosshair.SetActive(!firearmWeaponSO.CrosshairOff);
         }
         else
@@ -179,7 +191,6 @@ public class ActiveWeapon : MonoBehaviour
             Debug.LogWarning("Unsupported weapon type.");
         }
     }
-
 
     public bool AddWeapon(WeaponSO newWeapon)
     {
@@ -200,6 +211,8 @@ public class ActiveWeapon : MonoBehaviour
             {
                 weaponSlots[i].enabled = true;
                 availableWeapons[i] = newWeapon;
+                if (newWeapon is FirearmWeaponSO firearm)
+                    weaponAmmos[i] = firearm.MagazineSize;
                 Debug.Log("Weapon added: " + newWeapon.name);
                 return true;
             }
