@@ -29,6 +29,14 @@ public class Explosion : MonoBehaviour
                 enemyHealth.TakeDamage(damage);
                 break;
             }
+            var explosionObj = hitCollider.GetComponent<ExplosiveOnHit>();
+            if (explosionObj)
+            {
+                audioSource.Play();
+
+                explosionObj.TakeDamage(damage);
+                break;
+            }
 
             PlayerHealth playerHealth = hitCollider.GetComponent<PlayerHealth>();
             if (playerHealth)

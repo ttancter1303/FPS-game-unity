@@ -6,10 +6,15 @@ public class FirearmWeapon : Weapon
     [SerializeField] private FirearmWeaponSO weaponSO; // Tham chiếu đến dữ liệu vũ khí tầm xa (FirearmWeaponSO)
     [SerializeField] Transform bulletSpawn;
     [SerializeField] ParticleSystem muzzleFlash;
+
+
     Animator animator;
     const string SHOOT_STRING = "Shoot";
     CinemachineImpulseSource impulseSource;
     AudioSource audioSource;
+
+    public float recoilAmount = 2f;
+    public float recoilSpeed = 5f;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -56,10 +61,18 @@ public class FirearmWeapon : Weapon
                 rb.AddForceAtPosition(forceDirection.normalized * weaponSO.WeaponForce, hit.point, ForceMode.Impulse);
             }
             // Tác động lên các vật thể phát nổ
-            var explodeTarget = hit.collider.GetComponent<ExplosionOnHit>();
-            explodeTarget?.Explode();
+            var explodeTarget = hit.collider.GetComponent<ExplosiveOnHit>();
+            explodeTarget?.TakeDamage(weaponSO.Damage);
+            ApplyRecoil();
 
+        }
+        void ApplyRecoil()
+        {
+            // Giật camera lên
+            float recoilX = Random.Range(recoilAmount * 0.5f, recoilAmount);
+            float recoilY = Random.Range(-recoilAmount * 0.2f, recoilAmount * 0.2f);
 
+            Camera.main.transform.localEulerAngles += new Vector3(-recoilX, recoilY, 0f);
         }
     }
 }

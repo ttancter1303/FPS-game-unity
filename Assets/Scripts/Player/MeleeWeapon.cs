@@ -34,8 +34,8 @@ public class MeleeWeapon : Weapon
             }
 
             // Tác động lên các vật thể phát nổ
-            var explodeTarget = hit.collider.GetComponent<ExplosionOnHit>();
-            explodeTarget?.Explode();
+            var explodeTarget = hit.collider.GetComponent<ExplosiveOnHit>();
+            explodeTarget?.TakeDamage(weaponSO.Damage);
         }
     }
 }

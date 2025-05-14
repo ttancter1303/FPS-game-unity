@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5054468720947232640}
   - component: {fileID: 5792245413395064982}
   - component: {fileID: 2568121088639875725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ammo Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6803403381595310022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +158,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 87bf0ea75b848474b9682c8ff1993ed2, type: 3}
       propertyPath: m_Name
       value: Crate_05_2_Glow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87bf0ea75b848474b9682c8ff1993ed2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

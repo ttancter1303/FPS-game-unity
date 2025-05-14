@@ -3866,6 +3866,7 @@ GameObject:
   - component: {fileID: 4488456976068479443}
   - component: {fileID: 4671565553202275354}
   - component: {fileID: 1208555600202666313}
+  - component: {fileID: 8043625235948823374}
   m_Layer: 6
   m_Name: Zombie
   m_TagString: Untagged
@@ -3940,7 +3941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 10
-  particle: {fileID: 3643005157196915440, guid: cb0f2fbc6003ef14dadf389b0f45c7d3, type: 3}
+  particle: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!114 &4488456976068479443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3953,6 +3954,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ec0ef4be0ac4444839c91337bc461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 1.5
+  damage: 30
+  attackRange: 2
+  alertRange: 6
+  chaseRange: 15
+  wanderRadius: 20
+  wanderDelay: 5
 --- !u!195 &4671565553202275354
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3963,7 +3971,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -334000983
   m_Radius: 0.5
-  m_Speed: 1.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -3972,7 +3980,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: -0.1
+  m_BaseOffset: -0.15
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &1208555600202666313
@@ -3998,6 +4006,27 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.83, z: 0}
+--- !u!135 &8043625235948823374
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779234483666905975}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.27
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &8118266909095665258
 GameObject:
   m_ObjectHideFlags: 0
