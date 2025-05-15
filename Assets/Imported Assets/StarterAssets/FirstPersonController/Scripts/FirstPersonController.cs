@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 #endif
 
 namespace StarterAssets
@@ -20,10 +21,11 @@ namespace StarterAssets
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
-
+		public Slider dashSlider;
 		public float dashSpeed = 20.0f;
 		public float dashDuration = 0.2f;
-        public float dashCooldown = 1f;
+        public float dashCooldown = 2f;
+
 
         bool isDashing = false;
         float dashTimeRemaining = 0f;
@@ -117,6 +119,8 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			dashSlider.minValue = -dashDuration;
+			dashSlider.maxValue = 0;
 		}
 
 		private void Update()
@@ -189,9 +193,10 @@ namespace StarterAssets
         }
 		private void handleDashOrMove()
 		{
+			
             if (dashCooldownRemaining > 0f)
                 dashCooldownRemaining -= Time.deltaTime;
-
+            dashSlider.value = -dashCooldownRemaining;
             if (Keyboard.current.leftAltKey.wasPressedThisFrame && !isDashing && dashCooldownRemaining <= 0f)
             {
                 Dash(); // bắt đầu dash
