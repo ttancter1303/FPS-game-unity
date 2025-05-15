@@ -13,6 +13,7 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] GameObject crosshair;
     [SerializeField] TMP_Text ammoText;
     [SerializeField] Image[] weaponSlots;
+    [SerializeField] Image[] weaponIconSlots;
 
 
     WeaponSO[] availableWeapons = new FirearmWeaponSO[4];
@@ -162,6 +163,7 @@ public class ActiveWeapon : MonoBehaviour
         for (int i = 0; i < weaponSlots.Length; i++)
         {
             weaponSlots[i].enabled = false;
+            weaponIconSlots[i].enabled = false;
         }
     }
 
@@ -210,9 +212,16 @@ public class ActiveWeapon : MonoBehaviour
             if (availableWeapons[i] == null)
             {
                 weaponSlots[i].enabled = true;
+                weaponIconSlots[i].enabled = true;
+
                 availableWeapons[i] = newWeapon;
                 if (newWeapon is FirearmWeaponSO firearm)
+                {
+                    weaponIconSlots[i].preserveAspect = true;
+
+                    weaponIconSlots[i].sprite = firearm.weaponIcon;
                     weaponAmmos[i] = firearm.MagazineSize;
+                }
                 Debug.Log("Weapon added: " + newWeapon.name);
                 return true;
             }

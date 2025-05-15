@@ -12,6 +12,7 @@ public class FirearmWeapon : Weapon
     const string SHOOT_STRING = "Shoot";
     CinemachineImpulseSource impulseSource;
     AudioSource audioSource;
+    HurtBox hurtBox;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class FirearmWeapon : Weapon
     private void Start()
     {
         animator = GetComponent<Animator>();
+        hurtBox = GetComponent<HurtBox>();
     }
 
     public override void Attack()
@@ -64,6 +66,11 @@ public class FirearmWeapon : Weapon
             // Gây sát thương cho enemy nếu có
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
             enemyHealth?.TakeDamage(weaponSO.Damage);
+
+            if (hurtBox != null)
+            {
+                hurtBox.TakeDamage(weaponSO.Damage);
+            }
 
             // Nếu đối tượng có Rigidbody, tác động lực vật lý
             Rigidbody rb = hit.collider.attachedRigidbody;

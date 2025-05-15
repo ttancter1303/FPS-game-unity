@@ -484,6 +484,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5626086896870833218}
+  - component: {fileID: 1193116336240280495}
+  - component: {fileID: 6699902583454105052}
   m_Layer: 6
   m_Name: head
   m_TagString: Untagged
@@ -509,6 +511,43 @@ Transform:
   - {fileID: 4397256663503961616}
   m_Father: {fileID: 2864120450474583093}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1193116336240280495
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895797663478505904}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.35
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6699902583454105052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895797663478505904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77af846b411ab9647a730494490fe83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 9029618977417277847}
+  damageMultiplier: 3
 --- !u!1 &927596521520841347
 GameObject:
   m_ObjectHideFlags: 0
@@ -3961,6 +4000,8 @@ MonoBehaviour:
   chaseRange: 15
   wanderRadius: 20
   wanderDelay: 5
+  attackDelay: 1
+  agent: {fileID: 0}
 --- !u!195 &4671565553202275354
 NavMeshAgent:
   m_ObjectHideFlags: 0

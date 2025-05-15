@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     BaseEnemy baseEnemy;
 
 
-    int currentHealth;
+    float currentHealth;
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         //Instantiate(particle, transform.position, Quaternion.identity);
