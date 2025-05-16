@@ -1,28 +1,35 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
-public class Interactable : MonoBehaviour
+[RequireComponent(typeof(Collider))]
+public abstract class Interactable : MonoBehaviour
 {
     Outline outline;
     public string message;
-    public UnityEvent onInteraction;
+    public UnityEvent onInteraction; 
 
     void Start()
     {
         outline = GetComponent<Outline>();
         DisableOutline();
     }
+
     public void Interact()
     {
-        onInteraction.Invoke();
+        OnInteract();
+        onInteraction.Invoke(); 
+        
     }
+    public abstract void OnInteract();
     public void DisableOutline()
     {
-        outline.enabled = false;
+        if (outline != null)
+            outline.enabled = false;
     }
+
     public void EnableOutline()
     {
-        outline.enabled = true;
+        if (outline != null)
+            outline.enabled = true;
     }
 }

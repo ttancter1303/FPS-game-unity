@@ -3,61 +3,68 @@
 public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
-    Interactable currentInteracable;
+    Interactable currentInteractable;
 
     void Update()
     {
         CheckInteraction();
-        if(Input.GetKeyDown(KeyCode.E) && currentInteracable != null)
+
+        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
         {
-            currentInteracable.Interact();
+            currentInteractable.Interact();
         }
     }
+
     void CheckInteraction()
     {
         RaycastHit hit;
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-        
-        // khi player bắn raycast trong phạm vi của player reach
-        if(Physics.Raycast(ray, out hit,playerReach))
+
+        if (Physics.Raycast(ray, out hit, playerReach))
         {
-            if(hit.collider.tag == "Interactable") // kiểm tra vật có gắn tag Interacable không
+            if (hit.collider.CompareTag("Interactable"))
             {
-                Debug.Log("Hit Interactable");
-                Interactable newInteractable = hit.collider.GetComponent<Interactable>();
-               
-                if(currentInteracable && newInteractable != currentInteracable)
+                PickupInteract newInteractable = hit.collider.GetComponent<PickupInteract>();
+
+                if (currentInteractable && newInteractable != currentInteractable)
                 {
-                    currentInteracable.DisableOutline();
+                    currentInteractable.DisableOutline();
                 }
                 if (newInteractable.enabled)
                 {
-                    SetNewCurrentInteracable(newInteractable);
+                    SetNewCurrentInteractable(newInteractable);
                 }
-                else // nếu như không có thì tắt
+                else
                 {
-                    DisableCurrentInteracable();
+                    DisableCurrentInteractable();
                 }
             }
-            else // nếu như không có thì tắt
+            else
             {
-                DisableCurrentInteracable();
+                DisableCurrentInteractable();
             }
         }
+        else
+        {
+            DisableCurrentInteractable();
+        }
     }
-    void SetNewCurrentInteracable(Interactable newIneracable)
+
+    void SetNewCurrentInteractable(PickupInteract newInteractable)
     {
-        currentInteracable = newIneracable;
-        currentInteracable.EnableOutline();
-        HUDController.instance.EnableInteractionText(currentInteracable.message);
+        currentInteractable = newInteractable;
+        currentInteractable.EnableOutline();
+        HUDController.instance.EnableInteractionText(currentInteractable.message);
     }
-    void DisableCurrentInteracable()
+
+    void DisableCurrentInteractable()
     {
         HUDController.instance.DisableInteractionText();
-        if (currentInteracable != null)
+
+        if (currentInteractable != null)
         {
-            currentInteracable.DisableOutline();
-            currentInteracable = null;
+            currentInteractable.DisableOutline();
+            currentInteractable = null;
         }
     }
 }
