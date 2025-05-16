@@ -49,7 +49,14 @@ public class FirearmWeapon : Weapon
             Mathf.Infinity, interactionsLayer, QueryTriggerInteraction.Ignore))
         {
             // Spawn hit VFX tại điểm trúng
-            GameObject hitVFX = Instantiate(weaponSO.HitVFXPrefab, hit.point, Quaternion.identity);
+            Vector3 directionToPlayer = Camera.main.transform.position - hit.point;
+            Quaternion rotation = Quaternion.LookRotation(directionToPlayer.normalized);
+
+
+            GameObject hitVFX = Instantiate(weaponSO.HitVFXPrefab, hit.point, rotation);
+
+
+
             ParticleSystem ps = hitVFX.GetComponent<ParticleSystem>();
             if (ps != null)
             {

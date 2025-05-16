@@ -19,7 +19,7 @@ MonoBehaviour:
   Damage: 20
   WeaponForce: 150
   RotationSpeed: 0.3
-  FireRate: 0.5
+  FireRate: 1
   IsAutomatic: 0
   CanZoom: 1
   ZoomAmount: 10

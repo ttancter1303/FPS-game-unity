@@ -1,21 +1,43 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class PickupBase : MonoBehaviour
 {
-    [SerializeField] float rotationSpeed = 60f;
+    public string message;
+    public UnityEvent pickup;
     const string PLAYER_STRING = "Player";
-    private void Update()
+
+    void Start()
     {
-        transform.Rotate(0f, Time.deltaTime * rotationSpeed, 0f);
+        HandleEvent();
     }
-    private void OnTriggerEnter(Collider other)
+
+    public void HandleEvent()
     {
-        if (other.CompareTag(PLAYER_STRING))
+        ActiveWeapon activeWeapon = GetComponentInChildren<ActiveWeapon>();
+        if (activeWeapon != null)
         {
-            ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
+            pickup.Invoke();
             OnPickup(activeWeapon);
-            Destroy(gameObject);
+            Destroy(gameObject); 
+        }
+        else
+        {
+            Debug.LogError("Không tìm thấy ActiveWeapon trong scene.");
         }
     }
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag(PLAYER_STRING))
+    //    {
+    //        ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
+    //        pickup.Invoke();
+    //        OnPickup(activeWeapon);
+    //        Destroy(activeWeapon);
+    //    }
+    //}
+
     protected abstract void OnPickup(ActiveWeapon active);
 }

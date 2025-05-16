@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2964905679586613832}
   - component: {fileID: 869650390808291347}
   - component: {fileID: 4359348862717200236}
+  - component: {fileID: 7745258955316703662}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -79,9 +80,10 @@ MonoBehaviour:
   SprintSpeed: 10
   RotationSpeed: 2
   SpeedChangeRate: 10
+  dashSlider: {fileID: 0}
   dashSpeed: 50
   dashDuration: 0.2
-  dashCooldown: 1
+  dashCooldown: 2
   JumpHeight: 1.5
   Gravity: -15
   JumpTimeout: 0.1
@@ -131,6 +133,10 @@ MonoBehaviour:
   shoot: 0
   dash: 0
   zoom: 0
+  switchWeapon1: 0
+  switchWeapon2: 0
+  switchWeapon3: 0
+  switchWeapon4: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -232,6 +238,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7745258955316703662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10824342974683647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7618e0601a06704eabb217cf82ac2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  deathVirtualCamera: {fileID: 0}
+  weaponCamera: {fileID: 7489375080880010276}
+  healthSlider: {fileID: 0}
 --- !u!1 &2171025525067502353
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +296,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2429912161214589725}
-  - component: {fileID: 112440011098737160}
   - component: {fileID: 5695397795319104737}
   m_Layer: 3
   m_Name: Active Weapon
@@ -298,28 +319,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2552988836943626932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &112440011098737160
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3739921220339724094}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fcc1fed24dc897143908ae59a50ceefd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5695397795319104737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,11 +331,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a785400a44e48284fb67d538d859b4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingWeaponSO: {fileID: 11400000, guid: ba579f49c2960c0488c8d3ddf570b5ae, type: 2}
+  startingWeaponSO: {fileID: 11400000, guid: 952d4d8505971a14e8afff19a2104641, type: 2}
   playerFollowCamera: {fileID: 0}
+  weaponCamera: {fileID: 5853979549688373865}
   zoomVignette: {fileID: 0}
   crosshair: {fileID: 0}
   ammoText: {fileID: 0}
+  weaponSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponIconSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7004218127874756066
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +564,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
