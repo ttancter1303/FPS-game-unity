@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29147ed7962f0f439c0e42cd2fec79a, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
+  WeaponID: Sniper
   weaponIcon: {fileID: 21300000, guid: 4e73aac1f67185044a0695a4fb93564e, type: 3}
   HitVFXPrefab: {fileID: 5747655112891376397, guid: 31d07a2850e202249b8c08042d953054, type: 3}
   WeaponPrefab: {fileID: 4082593140687018841, guid: 684d79b572463af459c9b6363a03b3a6, type: 3}
