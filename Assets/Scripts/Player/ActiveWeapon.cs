@@ -1,4 +1,5 @@
-﻿using Cinemachine;
+﻿using System;
+using Cinemachine;
 using StarterAssets;
 using TMPro;
 using UnityEngine;
@@ -16,19 +17,20 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] Image[] weaponIconSlots;
 
 
-    WeaponSO[] availableWeapons = new FirearmWeaponSO[4];
+    public WeaponSO[] availableWeapons = new FirearmWeaponSO[4];
     FirearmWeaponSO currentWeaponSO;
 
     StarterAssetsInputs starterAssetsInputs;
-    FirearmWeapon currentWeapon;
+    public FirearmWeapon currentWeapon;
     FirstPersonController firstPersonController;
 
+    public static ActiveWeapon Instance;
 
     float timeSinceLastShot = 0f;
     float timeCooldown = 0f;
     float defaultFOV;
     float defaultRotationSpeed;
-    int[] weaponAmmos = new int[4];
+    public int[] weaponAmmos = new int[4];
     int currentAmmo;
     int weaponIndex = 0;
 
@@ -38,6 +40,10 @@ public class ActiveWeapon : MonoBehaviour
     {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
         firstPersonController = GetComponentInParent<FirstPersonController>();
+        if (Instance != null)
+        {
+            Instance = this;
+        }
 
     }
 
@@ -270,5 +276,18 @@ public class ActiveWeapon : MonoBehaviour
             weaponCamera.fieldOfView = defaultFOV;
             zoomVignette.SetActive(false);
         }
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            SaveSystem.SaveGameState();
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveSystem.SaveGameState();
     }
 }

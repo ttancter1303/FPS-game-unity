@@ -24,20 +24,29 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.CompareTag("Interactable"))
             {
-                PickupInteract newInteractable = hit.collider.GetComponent<PickupInteract>();
+                Interactable newInteractable = hit.collider.GetComponent<Interactable>();
 
-                if (currentInteractable && newInteractable != currentInteractable)
+                if (newInteractable != null)
                 {
-                    currentInteractable.DisableOutline();
-                }
-                if (newInteractable.enabled)
-                {
-                    SetNewCurrentInteractable(newInteractable);
+                    if (currentInteractable && newInteractable != currentInteractable)
+                    {
+                        currentInteractable.DisableOutline();
+                    }
+
+                    if (newInteractable.enabled)
+                    {
+                        SetNewCurrentInteractable(newInteractable);
+                    }
+                    else
+                    {
+                        DisableCurrentInteractable();
+                    }
                 }
                 else
                 {
                     DisableCurrentInteractable();
                 }
+
             }
             else
             {
@@ -50,12 +59,13 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    void SetNewCurrentInteractable(PickupInteract newInteractable)
+    void SetNewCurrentInteractable(Interactable newInteractable)
     {
         currentInteractable = newInteractable;
         currentInteractable.EnableOutline();
         HUDController.instance.EnableInteractionText(currentInteractable.message);
     }
+
 
     void DisableCurrentInteractable()
     {

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 869650390808291347}
   - component: {fileID: 4359348862717200236}
   - component: {fileID: 7745258955316703662}
+  - component: {fileID: 4650696191708833329}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -254,6 +255,19 @@ MonoBehaviour:
   deathVirtualCamera: {fileID: 0}
   weaponCamera: {fileID: 7489375080880010276}
   healthSlider: {fileID: 0}
+--- !u!114 &4650696191708833329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10824342974683647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c96f2ae9ff77fe4a831e124083e3884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerReach: 3
 --- !u!1 &2171025525067502353
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a785400a44e48284fb67d538d859b4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingWeaponSO: {fileID: 11400000, guid: 952d4d8505971a14e8afff19a2104641, type: 2}
+  startingWeaponSO: {fileID: 11400000, guid: c2eb72f28ca44ab41b839cabd0577ca2, type: 2}
   playerFollowCamera: {fileID: 0}
   weaponCamera: {fileID: 5853979549688373865}
   zoomVignette: {fileID: 0}

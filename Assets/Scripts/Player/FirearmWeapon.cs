@@ -37,8 +37,13 @@ public class FirearmWeapon : Weapon
 
         if (muzzleFlash != null)
         {
+            if (muzzleFlash.isPlaying)
+            {
+                muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            }
             muzzleFlash.Play();
         }
+
 
         // Tính hướng bắn có recoil
         Vector3 shootDirection = GetRandomizedDirection(Camera.main.transform.forward, recoilAngle);

@@ -129,10 +129,10 @@ GameObject:
   - component: {fileID: 4695239667146418048}
   - component: {fileID: 7586115421433091370}
   - component: {fileID: 6967722113561722921}
-  - component: {fileID: 5994575764703450412}
   - component: {fileID: 5188763238394764237}
+  - component: {fileID: 8246273677742887582}
   m_Layer: 0
-  m_Name: Sniper pickup
+  m_Name: Sniper Pickup
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,52 +193,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &5994575764703450412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6827203578897494961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2253376b9dd465441b8836db92eec8bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: Pickup
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6827203578897494961}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  weaponSO: {fileID: 11400000, guid: a705613a9df053f4eb82bc5767c33496, type: 2}
-  activeWeapon: {fileID: 0}
-  message: Pickup
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6827203578897494961}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!82 &5188763238394764237
 AudioSource:
   m_ObjectHideFlags: 0
@@ -336,3 +290,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8246273677742887582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827203578897494961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961f7d288cb27a84bb60d700560c33f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: Pickup weapon
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  weaponSO: {fileID: 11400000, guid: a705613a9df053f4eb82bc5767c33496, type: 2}
+  activeWeapon: {fileID: 0}
