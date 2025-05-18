@@ -34,13 +34,13 @@ public class PlayerData
 
         if (activeWeapon == null) return;
         if (activeWeapon.availableWeapons != null)
-            weaponIDs = activeWeapon.availableWeapons.Select(x => x.WeaponID).ToList();
+            weaponIDs = activeWeapon.availableWeapons.Where(w => w != null).Select(w => w.name).ToList();
 
         if (activeWeapon.weaponAmmos != null)
             weaponAmmos = activeWeapon.weaponAmmos.ToList();
 
-        if (activeWeapon.currentWeaponSO != null)
-            currentWeaponID = activeWeapon.currentWeaponSO.WeaponID;
+        if (activeWeapon.currentWeapon != null)
+            currentWeaponID = activeWeapon.currentWeapon.name;
     }
 }
 
