@@ -74,8 +74,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8134368098704954936}
   - component: {fileID: 3061229202815409436}
-  - component: {fileID: 7370662734213113031}
   - component: {fileID: 2277023790202697346}
+  - component: {fileID: 1896279014746198096}
   m_Layer: 0
   m_Name: Teleport Gate
   m_TagString: Interactable
@@ -121,34 +121,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.1615295, y: 2.2940564, z: 0.42716217}
   m_Center: {x: -0.035079956, y: 1.1852074, z: 0.101932526}
---- !u!114 &7370662734213113031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6382474072748127614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ad05a7007657c4aa92de15558683d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: ' Open'
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6382474072748127614}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2277023790202697346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +139,22 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1896279014746198096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6382474072748127614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554e34dff5bc73e42ba8f6809f493c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: Next Map
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6941061463370048502
 GameObject:
   m_ObjectHideFlags: 0

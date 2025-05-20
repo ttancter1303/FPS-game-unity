@@ -1,5 +1,6 @@
 using Cinemachine;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,20 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Transform weaponCamera;
     [SerializeField] Slider healthSlider;
 
-    int currentHealth;
+    public int currentHealth;
     int gameOverVirtualCameraPriority = 20;
+    public static PlayerHealth Instance;
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("ActiveWeapon.Instance đã tồn tại! Có thể có nhiều đối tượng ActiveWeapon.");
+        }
         currentHealth = startingHealth;
         AdjustHealthUI();
     }
@@ -34,5 +44,17 @@ public class PlayerHealth : MonoBehaviour
     public void AdjustHealthUI()
     {
         healthSlider.value = currentHealth;
+    }
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            SaveSystem.SaveGameState();
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveSystem.SaveGameState();
     }
 }

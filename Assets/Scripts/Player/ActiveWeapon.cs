@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Cinemachine;
 using StarterAssets;
 using TMPro;
@@ -60,6 +61,7 @@ public class ActiveWeapon : MonoBehaviour
         defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
         defaultRotationSpeed = firstPersonController.RotationSpeed;
         AdjustAmmo(startingWeaponSO.MagazineSize);
+        // LoadGameDataAndApply();
 
     }
 
@@ -240,9 +242,6 @@ public class ActiveWeapon : MonoBehaviour
         Debug.Log("Weapon inventory full!");
         return false;
     }
-
-
-
     public void DebugPickup()
     {
         for (int i = 0; i < availableWeapons.Length; i++)
@@ -294,4 +293,57 @@ public class ActiveWeapon : MonoBehaviour
     {
         SaveSystem.SaveGameState();
     }
+
+    // public static void LoadGameDataAndApply()
+    // {
+    //     SaveData saveData = LoadSystem.LoadGameData();
+    //     if (saveData == null || saveData.weaponData == null)
+    //     {
+    //         Debug.LogWarning("No save data found!");
+    //         return;
+    //     }
+    //
+    //     var playerData = saveData.weaponData;
+    //     var activeWeapon = ActiveWeapon.Instance;
+    //     if (activeWeapon == null)
+    //     {
+    //         Debug.LogError("ActiveWeapon not found!");
+    //         return;
+    //     }
+    //
+    //     // Xóa hết vũ khí hiện tại
+    //     for (int i = 0; i < activeWeapon.availableWeapons.Length; i++)
+    //     {
+    //         activeWeapon.availableWeapons[i] = null;
+    //         activeWeapon.weaponAmmos[i] = 0;
+    //     }
+    //
+    //     // Load lại danh sách weapon
+    //     for (int i = 0; i < playerData.weaponIDs.Count; i++)
+    //     {
+    //         string weaponID = playerData.weaponIDs[i];
+    //         int ammo = playerData.weaponAmmos.Count > i ? playerData.weaponAmmos[i] : 0;
+    //
+    //         FirearmWeaponSO weapon = FindWeaponByID(weaponID);
+    //         if (weapon != null)
+    //         {
+    //             activeWeapon.availableWeapons[i] = weapon;
+    //             activeWeapon.weaponAmmos[i] = ammo;
+    //         }
+    //     }
+    //
+    //     // Set lại current weapon
+    //     FirearmWeaponSO currentWeapon = FindWeaponByID(playerData.currentWeaponID);
+    //     if (currentWeapon != null)
+    //     {
+    //         activeWeapon.SwitchWeapon(currentWeapon);
+    //     }
+    //
+    //     Debug.Log("Game data loaded successfully.");
+    // }
+    public static FirearmWeaponSO FindWeaponByID(string id)
+    {
+        return SaveSystem.allWeapons.FirstOrDefault(w => w.WeaponID == id);
+    }
+
 }

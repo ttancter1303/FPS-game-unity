@@ -85,7 +85,7 @@ MonoBehaviour:
   dashSpeed: 50
   dashDuration: 0.2
   dashCooldown: 2
-  JumpHeight: 1.5
+  JumpHeight: 1
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
@@ -255,6 +255,7 @@ MonoBehaviour:
   deathVirtualCamera: {fileID: 0}
   weaponCamera: {fileID: 7489375080880010276}
   healthSlider: {fileID: 0}
+  currentHealth: 0
 --- !u!114 &4650696191708833329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +367,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  currentWeapon: {fileID: 0}
+  currentWeaponSO: {fileID: 11400000, guid: 952d4d8505971a14e8afff19a2104641, type: 2}
   weaponAmmos: 00000000000000000000000000000000
 --- !u!1 &7004218127874756066
 GameObject:

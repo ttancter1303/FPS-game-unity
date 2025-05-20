@@ -7,26 +7,33 @@ using System.Collections.Generic;
 public static class SaveSystem
 {
     public const string FILENAME_SAVEDATA = "/savedata.json";
+    public static List<FirearmWeaponSO> allWeapons = new List<FirearmWeaponSO>();
 
     public static void SaveGameState()
     {
         string filePathSaveData = Application.persistentDataPath + FILENAME_SAVEDATA;
-        Debug.Log("Save file path: " + filePathSaveData);
-        PlayerData playerData = new PlayerData(ActiveWeapon.Instance);
-        SaveData saveData = new SaveData(playerData);
-        string json = JsonUtility.ToJson(saveData);
+
+        WeaponData weaponData = new WeaponData(ActiveWeapon.Instance);
+        HealthData healthData = new HealthData(PlayerHealth.Instance);
+
+        SaveData saveData = new SaveData(weaponData, healthData);
+
+        string json = JsonUtility.ToJson(saveData, true); // pretty print
         File.WriteAllText(filePathSaveData, json);
+
+        Debug.Log("Saved to: " + filePathSaveData);
     }
 }
 
 [Serializable]
-public class PlayerData
+public class WeaponData
 {
     [SerializeField] public List<string> weaponIDs;
     [SerializeField] public List<int> weaponAmmos;
     [SerializeField] public string currentWeaponID;
 
-    public PlayerData(ActiveWeapon activeWeapon)
+
+    public WeaponData(ActiveWeapon activeWeapon)
     {
         weaponIDs = new List<string>();
         weaponAmmos = new List<int>();
@@ -44,10 +51,27 @@ public class PlayerData
     }
 }
 
-
+[Serializable]
+public class HealthData
+{
+    public int playerHealth;
+    public Vector3 playerPosition;
+    public HealthData(PlayerHealth player)
+    {
+        playerHealth = player.currentHealth;
+        playerPosition = player.transform.position;
+    }
+}
 [Serializable]
 public class SaveData
 {
-    [SerializeField] PlayerData playerData;
-    public SaveData(PlayerData playerData) => this.playerData = playerData;
+    public WeaponData weaponData;
+    public HealthData healthData;
+
+    public SaveData(WeaponData weaponData, HealthData healthData)
+    {
+        this.weaponData = weaponData;
+        this.healthData = healthData;
+    }
 }
+
