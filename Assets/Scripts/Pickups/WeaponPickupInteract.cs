@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class WeaponPickupInteract : Interactable
 {
     [SerializeField] WeaponSO weaponSO;
-    [SerializeField] ActiveWeapon activeWeapon;
+    private ActiveWeapon active;
     Outline outline;
     AudioSource audioSource;
     private void Awake()
@@ -15,9 +15,17 @@ public class WeaponPickupInteract : Interactable
 
     public override void OnInteract()
     {
-        Debug.Log("Play Audio");
-        AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-        activeWeapon.AddWeapon((FirearmWeaponSO)weaponSO);
-        Destroy(gameObject);
+        var player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            active = player.GetComponentInChildren<ActiveWeapon>();
+            if (active != null)
+            {
+                Debug.Log("Play Audio");
+                AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+                active.AddWeapon((FirearmWeaponSO)weaponSO);
+                Destroy(gameObject);
+            }
+        }
     }
 }

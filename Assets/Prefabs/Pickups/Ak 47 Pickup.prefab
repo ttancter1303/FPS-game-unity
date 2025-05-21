@@ -87,7 +87,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.54, y: 0.63, z: 2.16}
+  m_Size: {x: 0.54, y: 0.63, z: 1.26}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8632233261191013149
 MonoBehaviour:
@@ -233,7 +233,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   weaponSO: {fileID: 11400000, guid: ba579f49c2960c0488c8d3ddf570b5ae, type: 2}
-  activeWeapon: {fileID: 0}
 --- !u!1001 &7175459568559272677
 PrefabInstance:
   m_ObjectHideFlags: 0

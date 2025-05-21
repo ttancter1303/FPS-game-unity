@@ -55,7 +55,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.54, y: 0.63, z: 2.16}
+  m_Size: {x: 0.54, y: 0.63, z: 0.78}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4689062213267064918
 MonoBehaviour:
@@ -189,7 +189,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   weaponSO: {fileID: 11400000, guid: c2eb72f28ca44ab41b839cabd0577ca2, type: 2}
-  activeWeapon: {fileID: 0}
 --- !u!1 &8065680151710537380
 GameObject:
   m_ObjectHideFlags: 0

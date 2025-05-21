@@ -1,0 +1,31 @@
+using UnityEngine;
+
+public class PickupFirstAid : Interactable
+{
+    
+    private PlayerHealth playerHealth;
+    private AudioSource audio;
+    private void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+    public override void OnInteract()
+    {
+        if (audio != null && audio.clip != null)
+        {
+            AudioSource.PlayClipAtPoint(audio.clip, transform.position);
+        }
+
+        // Tìm lại ActiveWeapon từ player
+        var player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            playerHealth = player.GetComponentInChildren<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.hasFirstAid = true;
+                playerHealth.FirstAidIcon.SetActive(true);
+            }
+        }
+    }
+}
