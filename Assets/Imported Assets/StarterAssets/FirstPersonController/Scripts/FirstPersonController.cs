@@ -147,6 +147,8 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+			if (PauseMenu.IsPaused) return;
+
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{

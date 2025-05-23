@@ -16,11 +16,11 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] TMP_Text ammoText;
     [SerializeField] Image[] weaponSlots;
     [SerializeField] Image[] weaponIconSlots;
+    [SerializeField] GameObject pauseMenu;
 
 
     public WeaponSO[] availableWeapons = new FirearmWeaponSO[4];
     public FirearmWeaponSO currentWeaponSO;
-
     StarterAssetsInputs starterAssetsInputs;
     FirearmWeapon currentWeapon;
     FirstPersonController firstPersonController;
@@ -34,6 +34,7 @@ public class ActiveWeapon : MonoBehaviour
     public int[] weaponAmmos = new int[4];
     int currentAmmo;
     int weaponIndex = 0;
+
 
 
 
@@ -71,6 +72,7 @@ public class ActiveWeapon : MonoBehaviour
         HandleShoot();
         HandleZoom();
         HandleSwitchWeapon();
+
     }
 
     public void AdjustAmmo(int amount)
@@ -116,6 +118,8 @@ public class ActiveWeapon : MonoBehaviour
             starterAssetsInputs.ShootInput(false);
         }
     }
+
+    #region Switch weapon
     public void HandleSwitchWeapon()
     {
         if (starterAssetsInputs.switchWeapon1)
@@ -242,21 +246,10 @@ public class ActiveWeapon : MonoBehaviour
         Debug.Log("Weapon inventory full!");
         return false;
     }
-    public void DebugPickup()
-    {
-        for (int i = 0; i < availableWeapons.Length; i++)
-        {
-            var item = availableWeapons[i];
-            if (item != null)
-            {
-                Debug.Log($"Slot {i + 1}: {item.name}");
-            }
-            else
-            {
-                Debug.Log($"Slot {i + 1}: Empty");
-            }
-        }
-    }
+    
+
+    #endregion
+    
 
     public void HandleZoom()
     {
@@ -281,18 +274,19 @@ public class ActiveWeapon : MonoBehaviour
         }
     }
 
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            SaveSystem.SaveGameState();
-        }
-    }
-
-    private void OnApplicationQuit()
-    {
-        SaveSystem.SaveGameState();
-    }
+    // private void OnApplicationPause(bool pauseStatus)
+    // {
+    //     if (pauseStatus)
+    //     {
+    //         SaveSystem.SaveGameState();
+    //     }
+    // }
+    //
+    //
+    // private void OnApplicationQuit()
+    // {
+    //     SaveSystem.SaveGameState();
+    // }
 
     // public static void LoadGameDataAndApply()
     // {
@@ -341,9 +335,9 @@ public class ActiveWeapon : MonoBehaviour
     //
     //     Debug.Log("Game data loaded successfully.");
     // }
-    public static FirearmWeaponSO FindWeaponByID(string id)
-    {
-        return SaveSystem.allWeapons.FirstOrDefault(w => w.WeaponID == id);
-    }
+    // public static FirearmWeaponSO FindWeaponByID(string id)
+    // {
+    //     return SaveSystem.allWeapons.FirstOrDefault(w => w.WeaponID == id);
+    // }
 
 }

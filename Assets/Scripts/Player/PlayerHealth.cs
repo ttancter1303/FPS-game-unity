@@ -57,18 +57,18 @@ public class PlayerHealth : MonoBehaviour
     {
         healthSlider.value = currentHealth;
     }
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            SaveSystem.SaveGameState();
-        }
-    }
-
-    private void OnApplicationQuit()
-    {
-        SaveSystem.SaveGameState();
-    }
+    // private void OnApplicationPause(bool pauseStatus)
+    // {
+    //     if (pauseStatus)
+    //     {
+    //         SaveSystem.SaveGameState();
+    //     }
+    // }
+    //
+    // private void OnApplicationQuit()
+    // {
+    //     SaveSystem.SaveGameState();
+    // }
 
     public void Healing()
     {

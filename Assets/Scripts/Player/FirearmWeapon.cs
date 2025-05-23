@@ -28,6 +28,8 @@ public class FirearmWeapon : Weapon
 
     public override void Attack()
     {
+        if (PauseMenu.IsPaused) return;
+
         // Reset và set trigger animation bắn
         animator.ResetTrigger(SHOOT_STRING);
         animator.SetTrigger(SHOOT_STRING);
@@ -95,6 +97,9 @@ public class FirearmWeapon : Weapon
             // Kiểm tra các đối tượng có hiệu ứng nổ
             var explodeTarget = hit.collider.GetComponent<ExplosiveOnHit>();
             explodeTarget?.TakeDamage(weaponSO.Damage);
+
+            var score = hit.collider.GetComponent<Destructible>();
+            score?.TakeDamage(weaponSO.Damage);
         }
     }
 
