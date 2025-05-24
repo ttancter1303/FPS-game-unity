@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class ActiveEnemyWave : MonoBehaviour
 {
-    [SerializeField] private GameObject trigger;
+    [SerializeField] private GameObject spawnWaveObject;
 
     private void Awake()
     {
-        trigger.SetActive(false);
+        spawnWaveObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        trigger.SetActive(true);
+        spawnWaveObject.SetActive(true);
     }
 }

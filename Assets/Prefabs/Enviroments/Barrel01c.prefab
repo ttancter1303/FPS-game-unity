@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3797884127548249341
+--- !u!1 &5032787308296778322
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8339878455296344786}
-  - component: {fileID: 3432474327574043714}
-  - component: {fileID: 1805917491231318082}
-  - component: {fileID: 7336840450337419696}
+  - component: {fileID: 1883101428235481559}
+  - component: {fileID: 2249333466281447496}
+  - component: {fileID: 3874333008661902654}
+  - component: {fileID: 336622597030065274}
+  - component: {fileID: 8728225034491960691}
   m_Layer: 0
-  m_Name: Rover_03_Front_Body
+  m_Name: Barrel01c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &8339878455296344786
+--- !u!4 &1883101428235481559
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3797884127548249341}
+  m_GameObject: {fileID: 5032787308296778322}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.99998915, z: -0, w: 0.0046619116}
-  m_LocalPosition: {x: 18.42, y: 19.2, z: 57.99}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 207.85968, y: 0.02, z: 142.07672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 179.466, z: 0}
---- !u!33 &3432474327574043714
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2249333466281447496
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3797884127548249341}
-  m_Mesh: {fileID: 8379092990739689029, guid: 3d585dcfbdc52b642a51b853513c0a78, type: 3}
---- !u!23 &1805917491231318082
+  m_GameObject: {fileID: 5032787308296778322}
+  m_Mesh: {fileID: 4300000, guid: 1d8c5fb2523c68243974af544e14168a, type: 3}
+--- !u!23 &3874333008661902654
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3797884127548249341}
+  m_GameObject: {fileID: 5032787308296778322}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4803449312067332711, guid: 3d585dcfbdc52b642a51b853513c0a78, type: 3}
+  - {fileID: 2100000, guid: a9a89b97a3d1543468b1e136519b70dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,14 +88,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7336840450337419696
+--- !u!64 &336622597030065274
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3797884127548249341}
-  m_Material: {fileID: 0}
+  m_GameObject: {fileID: 5032787308296778322}
+  m_Material: {fileID: 13400000, guid: 7195dc6f20d5fc64496aff5eeff1f732, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -106,6 +107,20 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8379092990739689029, guid: 3d585dcfbdc52b642a51b853513c0a78, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 1d8c5fb2523c68243974af544e14168a, type: 3}
+--- !u!114 &8728225034491960691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5032787308296778322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a702887bf43fdc43a2e387a4dff8baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 1
+  particle: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
