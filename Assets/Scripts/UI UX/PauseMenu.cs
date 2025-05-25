@@ -1,9 +1,20 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool IsPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject gameOverUI;
+
+    public static bool IsPaused = false;
+    PlayerHealth playerHealth;
+    private bool gameOverShown = false;
+
+    private void Awake()
+    {
+        playerHealth = FindObjectOfType<PlayerHealth>();
+    }
 
     void Update()
     {
@@ -13,8 +24,25 @@ public class PauseMenu : MonoBehaviour
                 ResumeGame();
             else
                 PauseGame();
+        }else if(playerHealth.currentHealth<=0)
+        {
+            ShowGameOverUI();
         }
+        
     }
+
+    public void ShowGameOverUI()
+    {
+        if (gameOverShown) return; // tránh gọi lại nhiều lần
+
+        Time.timeScale = 0f;
+        IsPaused = true;
+        gameOverUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        gameOverShown = true;
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0f;
@@ -34,6 +62,15 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    public void ResetGame()
+    {
+        Time.timeScale = 1f;
+        IsPaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
 
     public void QuitGame()
     {

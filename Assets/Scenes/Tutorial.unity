@@ -6414,7 +6414,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 435502797}
+  m_Mesh: {fileID: 1550707273}
 --- !u!33 &417904895
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -21496,7 +21496,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1610913952}
+  m_Mesh: {fileID: 739619125}
 --- !u!33 &1153063993
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -22432,7 +22432,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1550707273}
+  m_Mesh: {fileID: 1610913952}
 --- !u!33 &1252017354
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -24033,7 +24033,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 336211212}
+  m_Mesh: {fileID: 435502797}
 --- !u!33 &1371264843
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -43301,6 +43301,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1251748522}
     - target: {fileID: 7745258955316703662, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
+      propertyPath: deadMenu
+      value: 
+      objectReference: {fileID: 9066607759902190365}
+    - target: {fileID: 7745258955316703662, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
       propertyPath: FirstAidIcon
       value: 
       objectReference: {fileID: 702786875}
@@ -43649,6 +43653,14 @@ PrefabInstance:
       propertyPath: portalGate
       value: 
       objectReference: {fileID: 1475311324}
+    - target: {fileID: 2362538663367752140, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+      propertyPath: portalGates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362538663367752140, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+      propertyPath: 'portalGates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1475311324}
     - target: {fileID: 3931004526259709926, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
       propertyPath: m_Name
       value: 'HUD player '
@@ -43760,6 +43772,11 @@ PrefabInstance:
 --- !u!224 &9066607759902190364 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4100626384916829353, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+  m_PrefabInstance: {fileID: 9066607759902190363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9066607759902190365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7402424268180433018, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
   m_PrefabInstance: {fileID: 9066607759902190363}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

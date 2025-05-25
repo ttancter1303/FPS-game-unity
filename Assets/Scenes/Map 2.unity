@@ -2808,17 +2808,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb5634fa0f4ce734e9dc6c44a7a81a37, type: 3}
---- !u!114 &228418741 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2305099496556925237, guid: eb5634fa0f4ce734e9dc6c44a7a81a37, type: 3}
-  m_PrefabInstance: {fileID: 228418740}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &232023910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3263,10 +3252,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 696994146}
     - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
-      propertyPath: startingWeaponSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 952d4d8505971a14e8afff19a2104641, type: 2}
-    - target: {fileID: 5695397795319104737, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
       propertyPath: playerFollowCamera
       value: 
       objectReference: {fileID: 1242305585}
@@ -3302,10 +3287,10 @@ PrefabInstance:
       propertyPath: 'weaponIconSlots.Array.data[3]'
       value: 
       objectReference: {fileID: 144447895}
-    - target: {fileID: 5853979549688373865, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
+    - target: {fileID: 7745258955316703662, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
+      propertyPath: deadMenu
+      value: 
+      objectReference: {fileID: 1901075872}
     - target: {fileID: 7745258955316703662, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
       propertyPath: FirstAidIcon
       value: 
@@ -3314,10 +3299,6 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1740084067}
-    - target: {fileID: 7745258955316703662, guid: e5862f3080dbccd41847a521fd352b25, type: 3}
-      propertyPath: deathVirtualCamera
-      value: 
-      objectReference: {fileID: 228418741}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29322,11 +29303,20 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9055675480195634749, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1901075872}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+--- !u!1 &1901075872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7402424268180433018, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+  m_PrefabInstance: {fileID: 1901075871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1908192181 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5853979549688373865, guid: e5862f3080dbccd41847a521fd352b25, type: 3}

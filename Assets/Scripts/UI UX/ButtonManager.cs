@@ -21,6 +21,6 @@ public class ButtonManager : MonoBehaviour
 
     public void ResetLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        pauseMenu.ShowGameOverUI();
     }
 }

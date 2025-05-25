@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstAidIcon: {fileID: 0}
   startingHealth: 100
-  deathVirtualCamera: {fileID: 0}
+  deadMenu: {fileID: 0}
   weaponCamera: {fileID: 7489375080880010276}
   healthSlider: {fileID: 0}
   hasFirstAid: 0
