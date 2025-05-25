@@ -26,7 +26,8 @@ public class ActiveWeapon : MonoBehaviour
     FirstPersonController firstPersonController;
 
     public static ActiveWeapon Instance;
-
+    private Color originalSlotColor;
+    
     float timeSinceLastShot = 0f;
     float timeCooldown = 0f;
     float defaultFOV;
@@ -34,12 +35,13 @@ public class ActiveWeapon : MonoBehaviour
     public int[] weaponAmmos = new int[4];
     int currentAmmo;
     int weaponIndex = 0;
-
+    
 
 
 
     void Awake()
     {
+        
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
         firstPersonController = GetComponentInParent<FirstPersonController>();
         if (Instance == null)
@@ -51,20 +53,10 @@ public class ActiveWeapon : MonoBehaviour
             Debug.LogWarning("ActiveWeapon.Instance đã tồn tại! Có thể có nhiều đối tượng ActiveWeapon.");
         }
 
-    }
-    Color SetColorFromHex(string hex)
-    {
-        if (ColorUtility.TryParseHtmlString(hex, out Color color))
-        {
-            return color;
-        }
-        else
-        {
-            return Color.white;
-            
-        }
+        originalSlotColor = weaponSlots[0].GetComponent<Image>().color;
 
     }
+
     private void Start()
     {
         DisableAllWeaponSlot();
@@ -182,10 +174,12 @@ public class ActiveWeapon : MonoBehaviour
     }
     void ResetAllSlotColors()
     {
-        for (int i = 0; i < weaponSlots.Length; i++) {
-            weaponSlots[i].GetComponent<Image>().color = SetColorFromHex("F7E7E7E");
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            weaponSlots[i].GetComponent<Image>().color = originalSlotColor;
         }
     }
+
     void DisableAllWeaponSlot()
     {
         for (int i = 0; i < weaponSlots.Length; i++)

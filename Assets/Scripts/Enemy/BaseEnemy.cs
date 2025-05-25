@@ -26,6 +26,8 @@ public class BaseEnemy : MonoBehaviour
     private Vector3 wanderTarget;
     private float wanderTimer;
     private bool isAttacking = false;
+    public bool isProvoked = false;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -51,9 +53,8 @@ public class BaseEnemy : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distanceToPlayer <= chaseRange)
+        if (isProvoked || distanceToPlayer <= chaseRange)
         {
-            // Đuổi theo player
             Chase();
         }
         else
@@ -65,10 +66,18 @@ public class BaseEnemy : MonoBehaviour
 
     public void Chase()
     {
-        agent.speed = 2f;
-        agent.SetDestination(player.transform.position);
-        SetAnimationState(RUN_STRING);
+        if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+        {
+            agent.speed = 2f;
+            agent.SetDestination(player.transform.position);
+            SetAnimationState(RUN_STRING);
+        }
+        else
+        {
+            Debug.LogWarning("NavMeshAgent chưa sẵn sàng để chạy Chase()");
+        }
     }
+
     void Wander()
     {
         wanderTimer += Time.deltaTime;

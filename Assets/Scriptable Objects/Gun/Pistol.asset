@@ -25,4 +25,4 @@ MonoBehaviour:
   CanZoom: 0
   ZoomAmount: 10
   CrosshairOff: 0
-  MagazineSize: 12
+  MagazineSize: 40
