@@ -1,9 +1,8 @@
 using TMPro;
 using UnityEngine;
-
 public class ScoreSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject portalGate;
+    [SerializeField] private GameObject[] portalGates;
     [SerializeField] private TMP_Text ScoreText;
     
     public static ScoreSystem Instance;
@@ -12,7 +11,7 @@ public class ScoreSystem : MonoBehaviour
     
     private void Awake()
     {
-        portalGate.SetActive(false);
+        HidePortalGate();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -36,6 +35,17 @@ public class ScoreSystem : MonoBehaviour
 
     public void ShowPortalGate()
     {
-        portalGate.SetActive(true);
+        for (var i = 0; i < portalGates.Length; i++)
+        {
+            portalGates[i].SetActive(true);
+        }
+    }
+
+    public void HidePortalGate()
+    {
+        for (var i = 0; i < portalGates.Length; i++)
+        {
+            portalGates[i].SetActive(false);
+        }
     }
 }

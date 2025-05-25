@@ -52,13 +52,25 @@ public class ActiveWeapon : MonoBehaviour
         }
 
     }
+    Color SetColorFromHex(string hex)
+    {
+        if (ColorUtility.TryParseHtmlString(hex, out Color color))
+        {
+            return color;
+        }
+        else
+        {
+            return Color.white;
+            
+        }
 
+    }
     private void Start()
     {
         DisableAllWeaponSlot();
         SwitchWeapon(startingWeaponSO);
         AddWeapon(startingWeaponSO);
-        weaponSlots[0].GetComponent<Image>().color = Color.red;
+        weaponSlots[0].GetComponent<Image>().color = Color.white;
         defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
         defaultRotationSpeed = firstPersonController.RotationSpeed;
         AdjustAmmo(startingWeaponSO.MagazineSize);
@@ -156,22 +168,22 @@ public class ActiveWeapon : MonoBehaviour
 
         if (targetWeapon == currentWeaponSO)
         {
-            selectedSlot.GetComponent<Image>().color = Color.red;
+            selectedSlot.GetComponent<Image>().color = Color.white;
             Debug.Log("Already holding: " + targetWeapon.name);
             return;
         }
 
         Debug.Log("Switching to: " + targetWeapon.name);
 
-        // Tô đỏ slot mới
-        selectedSlot.GetComponent<Image>().color = Color.red;
+
+        selectedSlot.GetComponent<Image>().color = Color.white;
 
         SwitchWeapon(targetWeapon);
     }
     void ResetAllSlotColors()
     {
         for (int i = 0; i < weaponSlots.Length; i++) {
-            weaponSlots[i].GetComponent<Image>().color = Color.white;
+            weaponSlots[i].GetComponent<Image>().color = SetColorFromHex("F7E7E7E");
         }
     }
     void DisableAllWeaponSlot()

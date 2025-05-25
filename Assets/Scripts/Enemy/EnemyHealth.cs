@@ -26,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        baseEnemy.Chase();
         //Instantiate(particle, transform.position, Quaternion.identity);
         if (currentHealth <= 0)
         {

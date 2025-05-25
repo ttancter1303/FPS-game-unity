@@ -54,15 +54,20 @@ public class BaseEnemy : MonoBehaviour
         if (distanceToPlayer <= chaseRange)
         {
             // Đuổi theo player
-            agent.speed = 2f;
-            agent.SetDestination(player.transform.position);
-            SetAnimationState(RUN_STRING);
+            Chase();
         }
         else
         {
             // Đi lang thang
             Wander();
         }
+    }
+
+    public void Chase()
+    {
+        agent.speed = 2f;
+        agent.SetDestination(player.transform.position);
+        SetAnimationState(RUN_STRING);
     }
     void Wander()
     {

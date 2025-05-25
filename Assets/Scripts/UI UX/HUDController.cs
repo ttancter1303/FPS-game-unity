@@ -8,6 +8,7 @@ public class HUDController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
     }
     public void EnableInteractionText(string text)
     {

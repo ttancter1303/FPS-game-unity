@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] public GameObject FirstAidIcon;
     [SerializeField] int startingHealth = 100;
-    [SerializeField] CinemachineVirtualCamera deathVirtualCamera;
+    [SerializeField] private GameObject deadMenu;
     [SerializeField] Transform weaponCamera;
     [SerializeField] Slider healthSlider;
     
@@ -49,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
         {
             healthSlider.value = 0;
             weaponCamera.parent = null;
-            deathVirtualCamera.Priority = gameOverVirtualCameraPriority;
+            deadMenu.SetActive(true);
             Destroy(gameObject);
         }
     }
