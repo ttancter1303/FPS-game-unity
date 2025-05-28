@@ -6,6 +6,20 @@ using System.Collections;
 public class LoadingScreenController : MonoBehaviour
 {
     public Slider progressBar;
+    public static int targetIndex = -1;
+    
+    void Awake()
+    {
+        // Kiểm tra trùng instance
+        var objs = FindObjectsOfType<LoadingScreenController>();
+        if (objs.Length > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        // DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
@@ -16,7 +30,7 @@ public class LoadingScreenController : MonoBehaviour
 
     IEnumerator LoadSceneAsync()
     {
-        int targetIndex = SceneLoadManager.TargetSceneIndex;
+        targetIndex = SceneLoadManager.TargetSceneIndex;
 
         if (targetIndex < 0 || targetIndex >= SceneManager.sceneCountInBuildSettings)
         {

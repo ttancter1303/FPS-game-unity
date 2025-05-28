@@ -17,7 +17,8 @@ public abstract class Interactable : MonoBehaviour
     public void Interact()
     {
         OnInteract();
-        onInteraction.Invoke(); 
+        onInteraction?.Invoke();
+
         
     }
     public abstract void OnInteract();

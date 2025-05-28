@@ -26812,6 +26812,26 @@ PrefabInstance:
       propertyPath: 'portalGates.Array.data[3]'
       value: 
       objectReference: {fileID: 1129227938}
+    - target: {fileID: 3173691877924854085, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+      propertyPath: portalGates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173691877924854085, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+      propertyPath: 'portalGates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 378884105}
+    - target: {fileID: 3173691877924854085, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+      propertyPath: 'portalGates.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1886676023}
+    - target: {fileID: 3173691877924854085, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+      propertyPath: 'portalGates.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1794946663}
+    - target: {fileID: 3173691877924854085, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
+      propertyPath: 'portalGates.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1129227938}
     - target: {fileID: 3931004526259709926, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
       propertyPath: m_Name
       value: HUD player  Variant

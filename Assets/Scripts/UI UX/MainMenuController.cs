@@ -9,8 +9,9 @@ public class MainMenuController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        SceneLoadManager.TargetSceneIndex = 1;
-        SceneManager.LoadScene(5);
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneLoadManager.TargetSceneIndex = currentIndex + 1;
+        SceneManager.LoadSceneAsync(6); // Scene 6 là loading scene
     }
     
 
