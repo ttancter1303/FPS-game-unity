@@ -181,11 +181,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c24cc4b01345bf4e95a1e9c54d77024, type: 3}
---- !u!1 &121555449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6382474072748127614, guid: 5c24cc4b01345bf4e95a1e9c54d77024, type: 3}
-  m_PrefabInstance: {fileID: 121555448}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &135869891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2473,6 +2468,11 @@ Transform:
   - {fileID: 1164124215}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1423693212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6382474072748127614, guid: 5c24cc4b01345bf4e95a1e9c54d77024, type: 3}
+  m_PrefabInstance: {fileID: 121555448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1425021277 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4581035233917739067, guid: eb5634fa0f4ce734e9dc6c44a7a81a37, type: 3}
@@ -4198,14 +4198,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2362538663367752140, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
-      propertyPath: 'portalGates.Array.data[0]'
-      value: 
-      objectReference: {fileID: 121555449}
     - target: {fileID: 3173691877924854085, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
       propertyPath: 'portalGates.Array.data[0]'
       value: 
-      objectReference: {fileID: 121555449}
+      objectReference: {fileID: 1423693212}
     - target: {fileID: 3931004526259709926, guid: 8fd8a267db1452046918ce7d665da8ad, type: 3}
       propertyPath: m_Name
       value: 'HUD player '

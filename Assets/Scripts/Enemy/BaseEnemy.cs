@@ -77,6 +77,15 @@ public class BaseEnemy : MonoBehaviour
             Debug.LogWarning("NavMeshAgent chưa sẵn sàng để chạy Chase()");
         }
     }
+    public void OnAttackFinished()
+    {
+        
+        isAttacking = false;
+        Debug.Log(currentState);
+        Debug.Log(isAttacking);
+        
+        SetAnimationState(RUN_STRING); // chuyển lại animation chạy
+    }
 
     void Wander()
     {
@@ -131,27 +140,45 @@ public class BaseEnemy : MonoBehaviour
     }
     IEnumerator DealDamageWithDelay(PlayerHealth target)
     {
-        yield return new WaitForSeconds(attackDelay); // Delay khớp với thời điểm đòn đánh chạm trong animation
-        if (target == null) yield break;
-        if (Vector3.Distance(transform.position, target.transform.position) <= radius)
+        yield return new WaitForSeconds(attackDelay);
+        if (target != null && Vector3.Distance(transform.position, target.transform.position) <= radius)
         {
             target.TakeDamage(damage);
         }
 
-        yield return new WaitForSeconds(1f); // Thời gian giữa 2 lần đánh
+        yield return new WaitForSeconds(1f);
         isAttacking = false;
+
+        // Chuyển về chạy nếu đang trong chế độ chase
+        if (Vector3.Distance(transform.position, player.transform.position) <= chaseRange)
+        {
+            SetAnimationState(RUN_STRING);
+        }
     }
+
     void SetAnimationState(string state)
     {
         if (state == currentState) return;
-
-        // Reset các trigger cũ
-        animator.ResetTrigger(WALK_STRING);
-        animator.ResetTrigger(RUN_STRING);
+        
         animator.ResetTrigger(ATTACK_STRING);
 
-        animator.SetTrigger(state);
+        switch (state)
+        {
+            case RUN_STRING:
+                animator.SetBool(RUN_STRING, true);
+                animator.SetBool(WALK_STRING, false);
+                break;
+            case WALK_STRING:
+                animator.SetBool(RUN_STRING, false);
+                animator.SetBool(WALK_STRING, true);
+                break;
+            case ATTACK_STRING:
+                animator.SetTrigger(ATTACK_STRING);
+                break;
+        }
+
         currentState = state;
     }
+
 
 }
