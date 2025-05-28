@@ -33,14 +33,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ShowGameOverUI()
     {
-        if (gameOverShown) return; // tránh gọi lại nhiều lần
+        if (gameOverShown) return; 
 
-        Time.timeScale = 0f;
+        Time.timeScale = 2f;
         IsPaused = true;
         gameOverUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         gameOverShown = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
     public void PauseGame()
@@ -63,12 +63,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void ResetGame()
-    {
-        Time.timeScale = 1f;
-        IsPaused = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+
 
 
 
