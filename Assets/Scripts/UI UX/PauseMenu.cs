@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,15 +35,31 @@ public class PauseMenu : MonoBehaviour
 
     public void ShowGameOverUI()
     {
-        if (gameOverShown) return; 
+        if (gameOverShown) return;
 
-        Time.timeScale = 2f;
+        Time.timeScale = 0f;
         IsPaused = true;
         gameOverUI.SetActive(true);
         gameOverShown = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        StartCoroutine(RestartSceneAfterDelay());
     }
+
+    private IEnumerator RestartSceneAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+
+        Time.timeScale = 1f;
+        IsPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 
     public void PauseGame()
     {

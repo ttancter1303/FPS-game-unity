@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int startingHealth = 10;
     [SerializeField] ParticleSystem particle;
+    [SerializeField] AudioSource audioSource;
     Animator animator;
     BaseEnemy baseEnemy;
 
@@ -18,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         baseEnemy = GetComponent<BaseEnemy>();
 
@@ -39,7 +41,7 @@ public class EnemyHealth : MonoBehaviour
     public void Die()
     {
         animator.SetTrigger("Die");
-
+        audioSource.Play();
         if (baseEnemy)
         {
             if (baseEnemy.agent) baseEnemy.agent.enabled = false;

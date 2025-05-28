@@ -5,6 +5,11 @@ public class LoadNextScence : Interactable
 {
     public override void OnInteract()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentIndex >= 4) return;
+
+        SceneLoadManager.TargetSceneIndex = currentIndex + 1;
+        SceneManager.LoadScene(5); // Scene 5 là loading scene
     }
+
 }
